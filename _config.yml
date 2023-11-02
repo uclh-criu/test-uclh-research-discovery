@@ -38,6 +38,11 @@ collections:
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-autoprefixer
+
+autoprefixer:
+  browsers:
+  - last 4 versions
 
 # Exclude from processing.
 # The following items will not be processed, by default.
