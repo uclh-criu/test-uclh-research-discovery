@@ -1,0 +1,25 @@
+<div class="col">
+  <div class="card mb-3" style="height: 18rem;">
+    <h5 class="card-header">{{project.title}}</h5>
+    {% if project.img %}
+    <img src="{{project.img.url}}" class="card-img-top" alt="{{project.img.alt}}">
+    {% endif %}
+    <div class="card-body">
+      <p class="card-text">{{project.excerpt | truncate: 160}}</p>
+      <p class="card-text"><small class="text-muted">
+        {%- if project.authors -%}
+          {% for author in project.authors %}
+            {% assign person = site.data.people[author] %}
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">{{ person.name }}</span>
+          </span>
+            {%- if forloop.last == false %}, {% endif -%}
+          {% endfor %}
+        {%- endif -%}
+      </small></p>
+    </div>
+    <div class="card-footer">
+      <a href="{{project.url}}" class="btn btn-outline-primary">Details</a>
+    </div>
+  </div>
+</div>
