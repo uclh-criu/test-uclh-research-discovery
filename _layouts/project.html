@@ -47,13 +47,13 @@ layout: base
       <li class="nav-item" role="presentation">
         <button 
           class="nav-link" 
-          id="{{tab.label}}-tab" 
+          id="{{tab.name}}-tab" 
           data-bs-toggle="tab" 
-          data-bs-target="#{{tab.label}}" 
+          data-bs-target="#{{tab.name}}" 
           type="button" 
           role="tab" 
-          aria-controls="{{tab.label}}" 
-          aria-selected="true">{{tab.label|capitalize}}</button>
+          aria-controls="{{tab.name}}" 
+          aria-selected="true">{%- if tab.label-%}{{tab.label}}{%-else-%}{{tab.name | capitalize}}{%-endif-%}</button>
       </li>
       {% endfor %}
       {% if page.rdr_embed_url %}
@@ -75,11 +75,17 @@ layout: base
         {{ content }}
       </div>
       {% for tab in page.tabs %}
-      <div class="tab-pane fade show" id="{{tab.label}}" role="tabpanel" aria-labelledby="{{tab.label}}-tab">
-        {%- capture tab_content -%}
-          {%- include_relative {{tab.file}} -%}
-        {%- endcapture -%}
-        {{tab_content| markdownify}}
+      <div class="tab-pane fade show" id="{{tab.name}}" role="tabpanel" aria-labelledby="{{tab.name}}-tab">
+        {%- if tab.type == "embed" -%}
+            <iframe src="{{tab.source}}" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+        {%- else -%}
+          {%- capture tab_content -%}{%- include_relative {{tab.source}} -%}{%- endcapture -%}
+          {%- if tab.type == "html" -%}
+            {{tab_content | remove: '<!DOCTYPE html>'}}
+          {%- else -%}
+            {{tab_content| markdownify}}
+          {%- endif -%}
+        {%- endif -%}
       </div>
       {% endfor %}
       {% if page.rdr_embed_url %}

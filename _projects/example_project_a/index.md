@@ -6,8 +6,8 @@ authors:
 - tom_couch
 rdr_embed_url: https://widgets.figshare.com/articles/22276726/embed?show_title=1
 tabs:
-  - { label: 'analysis', file: 'analysis.md' }
-  - { label: 'gdpr', file: 'gdpr.md' }
+  - { name: 'analysis', source: 'analysis.md' }
+  - { name: 'gdpr', source: 'gdpr.md', label: 'GDPR' }
 ---
 
 Main sheet lugger Jolly Roger grog blossom black spot square-rigged maroon hail-shot chantey bounty. Hornswaggle heave to long clothes gangway salmagundi furl measured fer yer chains bilge rat fore bilged on her anchor. Hands squiffy grog blossom run a rig boatswain topgallant gaff take a caulk crimp piracy.
