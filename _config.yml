@@ -27,8 +27,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   about the steps taken to protect sensitive patient data, as well as access 
   to code written by the researchers and synthetic datasets to enable you to 
   replicate their analyses.
-baseurl: # the subpath of your site, e.g. /blog
-basewebsite: "/project-info-site"
+baseurl: "/project-info-site" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  tcouch
 collections:
