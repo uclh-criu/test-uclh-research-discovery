@@ -6,7 +6,12 @@ authors:
 - tom_couch
 - fanny_cradock
 tabs:
-  - { name: 'analysis', type: 'html', source: 'quarto_example.html' }
+  - { 
+    name: 'analysis', 
+    type: 'html', 
+    source: 'quarto_example.html',
+    label: 'Analysis'
+    }
   - { name: 'material', type: 'embed', source: 'https://widgets.figshare.com/articles/22633606/embed?show_title=1'}
 ---
 
