@@ -3,11 +3,17 @@ title: Project alpha
 tags: foo flu
 layout: project
 authors:
-- tom_couch
+- author_1
+- author_2
 rdr_embed_url: https://widgets.figshare.com/articles/22276726/embed?show_title=1
 tabs:
   - { name: 'analysis', source: 'analysis.md' }
   - { name: 'gdpr', source: 'gdpr.md', label: 'GDPR' }
+  - { 
+    name: 'data', 
+    type: 'embed', 
+    source: 'https://widgets.figshare.com/articles/22633606/embed?show_title=1', 
+    label: 'Data and Code'}
 ---
 
 Main sheet lugger Jolly Roger grog blossom black spot square-rigged maroon hail-shot chantey bounty. Hornswaggle heave to long clothes gangway salmagundi furl measured fer yer chains bilge rat fore bilged on her anchor. Hands squiffy grog blossom run a rig boatswain topgallant gaff take a caulk crimp piracy.

@@ -3,8 +3,13 @@ title: Cheese therapy
 tags: cheese
 layout: project
 authors:
-- steve_harris
-# rdr_embed_url: https://widgets.figshare.com/articles/18692549/embed?show_title=1
+- author_1
+tabs:
+  - { 
+    name: 'appendix', 
+    type: 'embed', 
+    source: 'https://widgets.figshare.com/articles/18692549/embed?show_title=1'
+    }
 ---
 
 Stinking bishop manchego cheese triangles. Monterey jack when the cheese comes out everybody's happy goat cream cheese roquefort gouda cheese triangles cheeseburger. Melted cheese lancashire airedale macaroni cheese mozzarella babybel stilton port-salut. Camembert de normandie ricotta cheese triangles who moved my cheese mascarpone manchego roquefort cheese slices. Lancashire.
