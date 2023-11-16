@@ -3,7 +3,7 @@ This is the main repository for Project Info Site.
 
 ## Contributing
 
-Please read our contributors' guide for details on how to publish your own project on the site.
+Please read our [contributors' guide](contribute/project_submission.md) for details on how to publish your own project on the site.
 
 ## Building Locally
 
