@@ -13,13 +13,13 @@
             <a class="nav-link active" aria-current="page" href="{{ 'about' | relative_url}}">About</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="contributeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="contributeDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Contribute
             </a>
-            <div class="dropdown-menu" aria-labelledby="contributeDropdown">
+            <ul class="dropdown-menu" aria-labelledby="contributeDropdown">
               <a class="dropdown-item" href="{{'contribute' | relative_url}}">Overview</a>
               <a class="dropdown-item" href="{{'contribute/project_submission' | relative_url}}">Submit a project</a>
-            </div>
+            </ul>
           </li>
         </ul>
         <form class="d-flex" action="{{site.baseurl}}/search.html" method="get">
