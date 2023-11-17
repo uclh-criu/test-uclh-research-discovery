@@ -8,7 +8,7 @@ authors:
 # Add additional tabs by linking to other sources
 tabs:
   - { 
-    name: 'extra', 
+    name: 'extra', # Two tabs cannot share the same name
     type: 'html', # Optional: embed/html/markdown
     source: 'extra.html', # filename or embed url
     label: 'Extra tab' # Optional: label for tab, defaults to capitalised name
