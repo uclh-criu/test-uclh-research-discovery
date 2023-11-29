@@ -1,6 +1,71 @@
+:root {
+	--uclh-dark-jade: rgb(0, 122, 133);
+	--uclh-light-jade: rgb(172, 220, 212);
+	--uclh-orange: rgb(248, 151, 29);
+}
 
+// define font sizes in arial
 
 #data iframe {
-    margin: 1rem;
-    background-color: gray;
+	margin: 1rem;
+	background-color: gray;
+}
+
+.navbar {
+	background-color: var(--uclh-dark-jade);
+	padding-left: 3rem !important;
+	padding-right: 5rem !important;
+
+	.navbar-brand {
+		color: #fff;
+		font: 800 2rem Arial, Helvetica, sans-serif;
+	}
+	.nav-item,
+	.nav-link {
+		color: #fff;
+	}
+	a:hover {
+		color: var(--uclh-orange);
+	}
+}
+
+.project-card {
+	.card-header {
+		background-color: var(--uclh-light-jade);
+	}
+	.card-footer {
+		background-color: var(--uclh-light-jade);
+	}
+	.btn-outline-primary {
+		color: var(--uclh-dark-jade);
+		border-color: var(--uclh-dark-jade);
+		background-color: #fff;
+		&:hover {
+			color: var(--uclh-orange);
+			border-color: var(--uclh-orange);
+			background-color: #fff;
+		}
+	}
+}
+
+.site-footer {
+	color: var(--uclh-dark-jade);
+
+	.dark-divider {
+		color: var(--uclh-dark-jade);
+	}
+	.light-divider {
+		color: var(--uclh-light-jade);
+	}
+	ul {
+		list-style-type: none;
+	}
+	.footer__menu li {
+		display: inline-block;
+		margin-left: 1rem;
+	}
+
+	.footer__legal li {
+		font-size: 90%;
+	}
 }
