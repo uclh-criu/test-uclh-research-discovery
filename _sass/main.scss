@@ -27,6 +27,9 @@
 	a:hover {
 		color: var(--uclh-orange);
 	}
+	.search-icon {
+		color: white;
+	}
 }
 
 .project-card {
@@ -60,12 +63,29 @@
 	ul {
 		list-style-type: none;
 	}
+	a {
+		color: var(--uclh-dark-jade);
+		text-decoration: none;
+		&:hover {
+			color: var(--uclh-orange);
+		}
+	}
+	.footer__logo {
+		padding-left: 1rem;
+	}
 	.footer__menu li {
 		display: inline-block;
 		margin-left: 1rem;
 	}
+	.footer__legal {
+		padding-right: 2rem;
+		li {
+			font-size: 90%;
+		}
+	}
 
-	.footer__legal li {
-		font-size: 90%;
+	.github-icon {
+		padding-left: 0.3rem;
+		fill: var(--uclh-dark-jade);
 	}
 }
