@@ -11,6 +11,26 @@
 	background-color: gray;
 }
 
+
+#search-form {
+	display:none;
+}
+
+#search-form.visible {
+	display:block;
+}
+
+#search-box {
+	opacity: 0%;
+	width:30px;
+	transition: all 2s ease;
+}
+
+#search-box.expanded {
+	opacity: 100%;
+	width:200px;
+}
+
 .navbar {
 	background-color: var(--uclh-dark-jade);
 	padding-left: 3rem !important;
