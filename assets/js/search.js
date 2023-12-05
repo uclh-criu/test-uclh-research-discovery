@@ -41,6 +41,7 @@
   
     if (searchTerm) {
       document.getElementById('search-box').setAttribute("value", searchTerm);
+      document.getElementById('search-btn').classList.add("active");
       document.getElementById('search-form').classList.add("visible");
       document.getElementById('search-box').classList.add("expanded");
   

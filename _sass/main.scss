@@ -11,6 +11,18 @@
 	background-color: gray;
 }
 
+#search-btn {
+	transition: background-color 1s;
+	z-index: 2;
+}
+
+#search-btn:hover {
+	background-color: var(--uclh-orange);
+}
+
+#search-btn.active {
+	background-color: var(--uclh-orange);
+}
 
 #search-form {
 	display:none;
