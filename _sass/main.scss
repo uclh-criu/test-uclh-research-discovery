@@ -6,6 +6,14 @@
 
 // define font sizes in arial
 
+a {
+	color: var(--uclh-dark-jade); 
+	text-decoration: none;
+	&:hover {
+		color: var(--uclh-orange);
+	}
+}
+
 #data iframe {
 	margin: 1rem;
 	background-color: gray;
@@ -61,6 +69,15 @@
 	}
 	.search-icon {
 		color: white;
+	}
+}
+
+.nav-tabs {
+	.nav-link {
+		color: var(--uclh-dark-jade);
+		&:hover {
+			color: var(--uclh-orange);
+		}
 	}
 }
 
