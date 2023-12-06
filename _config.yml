@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: UCLH Outputs
+title: UCLH Research Discovery
 email: t.couch@ucl.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
   Public engagement site for UCLH research. Learn about the many different
@@ -29,7 +29,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   replicate their analyses.
 baseurl: "/project-info-site" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  tcouch
+github_username: tcouch
 collections:
   projects:
     output: true
@@ -42,8 +42,7 @@ plugins:
 
 autoprefixer:
   browsers:
-  - last 4 versions
-
+    - last 4 versions
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

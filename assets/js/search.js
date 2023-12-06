@@ -41,6 +41,9 @@
   
     if (searchTerm) {
       document.getElementById('search-box').setAttribute("value", searchTerm);
+      document.getElementById('search-btn').classList.add("active");
+      document.getElementById('search-form').classList.add("visible");
+      document.getElementById('search-box').classList.add("expanded");
   
       // Initalize lunr with the fields it will be searching on. I've given title
       // a boost of 10 to indicate matches on this field are more important.

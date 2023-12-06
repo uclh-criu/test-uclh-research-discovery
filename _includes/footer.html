@@ -1,10 +1,35 @@
 <footer class="site-footer h-card">
+    <hr class="light-divider">
+    <hr class="dark-divider">
+    <hr class="light-divider">
     
     <data class="u-url" href="{{ "/" | relative_url }}"></data>
-  
-    <div class="container mt-5">
-        <hr>
-        Site footer
+
+   
+  <div class="footer__content d-flex justify-content-between"> 
+    <div class="footer__logo">
+        <img width="400px" src="{{'assets/images/UCLH Values image.jpg' | relative_url}}">
     </div>
+    <div class="footer__menu">
+        <ul>
+            <li><a href="{{ 'about' | relative_url}}">About</a></li>
+            <li><a href="{{ 'contribute/contact' | relative_url}}">Contact us</a></li>
+            <li><a href="{{ 'contribute/project_submission' | relative_url}}">Submit a Project</a></li>
+            <li><a href="https://github.com/UCLH-Foundry/uclh-research-discovery">GitHub <img width="25px" class="github-icon" src="{{'assets/images/github-icon.svg' | relative_url}}"></a></li>
+        </ul>
+    </div>
+    <div class="footer__legal">
+        <ul>
+            <li>Site last updated: {{site.time | date_to_string: "ordinal"  }}</li>
+            <li>Terms of Use</li>
+            <li>Privacy Statement</li>
+            <li>© UCLH 2023</li>
+        </ul>
+    </div>
+  </div>
+    <!-- <div class="container mt-5">
+        <hr>
+        
+    </div> -->
   
   </footer>
