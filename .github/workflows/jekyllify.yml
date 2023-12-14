@@ -22,4 +22,4 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit-message: Auto generate Jekyll front matter for projects
+          commit_message: Auto generate Jekyll front matter for projects
