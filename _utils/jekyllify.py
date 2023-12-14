@@ -124,6 +124,7 @@ def generate_tabs_yaml(dir:Path) -> str:
 
 def jekyllify(dir:Path)->None:
     """Given a project directory, generate yaml front matter and prepend to index.md"""
+    print(f"Adding front matter to {dir}")
     front_matter = "---\n"
     front_matter += "layout: project\n"  # layout is always project
     front_matter += generate_title_yaml(dir)
@@ -136,6 +137,7 @@ def jekyllify(dir:Path)->None:
         f.write(front_matter + content)
 
 if __name__=="__main__":
+    print("Jekyllify script running...")
     args = argument_parser.parse_args()
     if args.project:
         dirs_to_jekyllify = [
@@ -146,5 +148,6 @@ if __name__=="__main__":
         dirs_to_jekyllify = [dir for dir in get_project_dirs() if can_process_dir(dir)]
     for dir in dirs_to_jekyllify:
         jekyllify(dir)
+    print("Jekyllify script completed")
     
     
