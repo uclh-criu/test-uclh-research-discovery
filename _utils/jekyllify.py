@@ -35,7 +35,7 @@ all project folders that don't contain yaml front matter at the top of index.md
 will be processed."""
 
 argument_parser.add_argument(
-    "project", help=project_arg_help, default=None
+    "-p","--project", help=project_arg_help, default=None
 )
 
 def can_process_dir(dir:Path, raise_exception:bool=False) -> bool:
