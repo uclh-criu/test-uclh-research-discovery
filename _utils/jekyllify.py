@@ -74,7 +74,13 @@ def get_project_dirs(name:str=None)->list[Path]:
         else:
             raise FileNotFoundError(f"No directory named {name} found under {PROJECTS_DIR}")
     else:
-        return [path for path in PROJECTS_DIR.iterdir() if path.is_dir()]
+        return [
+            path for path in PROJECTS_DIR.iterdir() 
+            if 
+              path.is_dir() 
+            and 
+              path.stem[0] != "_"
+            ]
     
 def get_random_string(len:int) -> str:
     return ''.join(random.choice(ascii_lowercase) for i in range(len))
@@ -147,10 +153,11 @@ def prepend_underscores_to_tab_sources(dir:Path)-> None:
             file.rename(file.with_stem("_"+file.stem))
 
 def jekyllify(dir:Path)->None:
-    """Given a project directory, generate yaml front matter and prepend to index.md.
-    Then add underscores to any .md or .html files other than index.md to ensure
-    they do not get processed by Jekyll."""
-    print(f"Adding front matter to {dir}")
+    """Given a project directory, add underscores to any .md or .html files other than 
+    index.md to ensure they do not get processed by Jekyll, then generate yaml front 
+    matter and prepend to index.md."""
+    print(f"Jekyllifying {dir}")
+    prepend_underscores_to_tab_sources(dir)
     front_matter = "---\n"
     front_matter += "layout: project\n"  # layout is always project
     front_matter += generate_title_yaml(dir)
@@ -161,8 +168,7 @@ def jekyllify(dir:Path)->None:
         content = f.read()
         f.seek(0,0)
         f.write(front_matter + content)
-    prepend_underscores_to_tab_sources(dir)
-
+    
 if __name__=="__main__":
     print("Jekyllify script running...")
     args = argument_parser.parse_args()
