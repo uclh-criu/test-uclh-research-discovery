@@ -1,18 +1,28 @@
 ---
-title: Project alpha
-tags: foo flu
 layout: project
+title: Example Project A
 authors:
-- author_1
-- author_2
+- Test Testerson
+- Trial Runterton
 tabs:
-  - { name: 'analysis', source: '_analysis.md' }
-  - { name: 'gdpr', source: '_gdpr.md', label: 'GDPR' }
-  - { 
-    name: 'data', 
-    type: 'embed', 
-    source: 'https://widgets.figshare.com/articles/22633606/embed?show_title=1', 
-    label: 'Data and Code'}
+- {
+  name: roozwhna,
+  type: md,
+  source: _gdpr.md,
+  label: Gdpr
+  }
+- {
+  name: ucqrttey,
+  type: md,
+  source: _analysis.md,
+  label: Analysis
+  }
+- {
+  name: ndflidwz,
+  type: html,
+  source: _data.html,
+  label: Data
+  }
 ---
 
 Main sheet lugger Jolly Roger grog blossom black spot square-rigged maroon hail-shot chantey bounty. Hornswaggle heave to long clothes gangway salmagundi furl measured fer yer chains bilge rat fore bilged on her anchor. Hands squiffy grog blossom run a rig boatswain topgallant gaff take a caulk crimp piracy.

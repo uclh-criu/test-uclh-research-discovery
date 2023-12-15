@@ -1,0 +1,25 @@
+name: Jekyllify projects
+run-name: ${{ github.actor }} project jekyllification
+on: 
+  push:
+  pull_request:
+    branches:
+      - main
+jobs:
+  jekyllify-project-folders:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Run jekyllify script
+        run: python ./_utils/jekyllify.py
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Auto generate Jekyll front matter for projects
