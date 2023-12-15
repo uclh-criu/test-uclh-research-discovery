@@ -1,18 +1,22 @@
 ---
-title: Mega project 1
-tags: CT scalpel flu
 layout: project
+title: Mega Project 1
 authors:
-- author_2
-- author_3
+- Anne Onamus
+- Sue Donnymous
 tabs:
-  - { 
-    name: 'analysis', 
-    type: 'html', 
-    source: '_quarto_example.html',
-    label: 'Analysis'
-    }
-  - { name: 'material', type: 'embed', source: 'https://widgets.figshare.com/articles/22633606/embed?show_title=1'}
+- {
+  name: qkzzakog,
+  type: html,
+  source: _quarto_example.html,
+  label: Quarto Example
+  }
+- {
+  name: gbvtxojp,
+  type: html,
+  source: _09_data.html,
+  label:  Data
+  }
 ---
 
 {{page.title}}: an investigation to see if it's possible to cut flu out of the body using CT-guided surgery.
