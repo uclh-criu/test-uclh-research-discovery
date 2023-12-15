@@ -1,18 +1,18 @@
 ---
 layout: project
-title: Mega Project 1
+title: CT-Guided Flu Surgery
 authors:
 - Anne Onamus
 - Sue Donnymous
 tabs:
 - {
-  name: qkzzakog,
+  name: ekyhlyxx,
   type: html,
   source: _quarto_example.html,
   label: Quarto Example
   }
 - {
-  name: gbvtxojp,
+  name: helqsiwe,
   type: html,
   source: _09_data.html,
   label:  Data
