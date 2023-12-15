@@ -6,9 +6,9 @@ authors:
 - Professor Plum
 tabs:
 - {
-  name: veaxthwj,
+  name: laaitepn,
   type: html,
-  source: data.html,
+  source: _data.html,
   label: Data
   }
 ---
