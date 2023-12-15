@@ -12,7 +12,8 @@
           var context = {
             title: item.title,
             url: item.url,
-            summary: item.content.substring(0, 200)
+            summary: item.content.substring(0, 200),
+            authors: item.authors
           };
           var html = template(context);
           searchResults.innerHTML += html
