@@ -6,19 +6,19 @@ authors:
 - Trial Runner
 tabs:
 - {
-  name: kykeuoqa,
+  name: vphbybwh,
   type: md,
   source: _analysis.md,
   label: Analysis
   }
 - {
-  name: gyvgzvxc,
+  name: npuufhpv,
   type: md,
   source: _gdpr.md,
   label: Gdpr
   }
 - {
-  name: vhabbkir,
+  name: kqfokysy,
   type: html,
   source: _data.html,
   label: Data

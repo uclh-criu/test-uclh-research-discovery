@@ -6,10 +6,10 @@ authors:
 - Doctor Foster
 tabs:
 - {
-  name: rttnzstm,
+  name: ftuawotq,
   type: html,
   source: 03_data.html,
-  label: 03 Data
+  label: Data
   }
 ---
 
