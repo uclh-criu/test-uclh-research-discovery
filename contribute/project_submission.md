@@ -17,7 +17,7 @@ If you are a UCLH researcher, you can submit details about your own research pro
 
 To help people who are interested in your research to better understand what data you have used and how you process it, it can be helpful to generate a synthetic dataset which you can share together with any relevant computer code in an open-access repository. We recommend using UCL's institutional [research data respository](https://rdr.ucl.ac.uk/) service as it is free for all UCL researchers to use and provides an embed link which can be used to include your data alongside details about your project on this site. Please read the guidance on the [UCL Library Researd Data Repository](https://www.ucl.ac.uk/library/open-science-research-support/research-data-management/ucl-research-data-repository) page for details on how to prepare and upload your data.
 
-Once your submission has been approved, you can find the embed URL by navigating to your deposit's page and selecting 'Embed' from the menu. Copy the src url from the iframe tag and save this for step 3.
+Once your submission has been approved, you can find the embed URL by navigating to your deposit's page and selecting 'Embed' from the menu. Copy the iframe tag and include this in one of the html or markdown files you create in Step 3.
 
 ## Step 2: Clone our repository on GitHub
 
@@ -29,75 +29,70 @@ The source code for this site can be found on GitHub: [{{site.data.github.url}}]
 
 ## Step 3: Complete the project template
 
-Once you have cloned the repository, you will need to create a new branch as you will not be able to merge your changes directly back into the main branch (choose a name that identifies you or your group, and the name of the project):
+Once you have cloned the repository, you will need to create a new branch as you will not be able to merge your changes directly back into the main branch. Choose a name that identifies you or your group, and the name of the project, for example:
 
 `git switch -c group-a-project-x`
 
-The pages for each project are kept in separate folders under `/_projects`, where you will also find a template for creating new projects: `_project_template`. Copy this folder and name it after your project (this folder name will form part of the url for your project pages). Now complete the following required steps:
+The pages for each project are kept in separate folders under `/_projects`, where you will also find a template for creating new projects: `_project_template`. Copy this folder and name it after your project. The name of the folder will be used to generate the title for your project (see below for how to override this). As a minimum your project folder should contain two files:
+
+* index.md
+* authors.txt
 
 ### index.md
-Every project folder must include a file called index.md, which serves two purposes:
-1. It contains frontmatter where you can define variables which Jekyll uses when building your pages
-2. It serves as the landing page for your project, where you can write an overview
+Every project folder must include a file called index.md, which serves as the landing page for your project. This page should include a lay summary of your project written in [markdown](https://en.wikipedia.org/wiki/Markdown) format. You can include as much detail as you like, but you also have the option to add additional pages if you'd like to split things like discussion of the data analysis or how you protect sensitive data into separate sections (see extra content below). If you're new to markdown, have a look at this [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to help you get started.
 
-Front matter at the top of the page starts and ends with triple dashes: '---'. This contains information about the project written in [YAML](https://en.wikipedia.org/wiki/YAML) format such as the project title, authors, and any additional content to include. To start with, enter a project title - we go into more detail about adding authors and extra content below.
+### authors.txt
+This file is simply a list of all the people you'd like to include as authors on the project. Their names will appear at the top of the page, and on the summary card shown on the website's home page.
 
-Below the front matter you should write your project summary. This should be written in [markdown](https://en.wikipedia.org/wiki/Markdown) format and can be as long as you like. You have the option to add additional pages if you'd like to split things like discussion of the data analysis or how you protect sensitive data into separate sections (see extra content below). If you're new to markdown, have a look at this [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to help you get started.
+Each name should appear on a separate line.
+
+### title.txt
+By default the title for your project will be derived from the folder name by replacing any dash or hyphen characters with spaces, and converting the result to title case.
+
+If you'd like to override this, add a file called `title.txt` and write the title for your project on the first line.
 
 ### Extra content
-If you'd like to split content across several pages, or include an embed link for your data, you can add extra content in the form of tabs across the top of the page.
+If you'd like to split content across several pages, or include an embed link for your data, you can add extra content by including additional markdown or html files in your project folder. This content will appear in separate tabs across the top of the page. 
 
-First, write your extra content in a separate markdown or html file (e.g. `_extras.md`) in the same folder as `index.md`. Then add the following to the tabs section in the frontmatter at the top of `index.md` for each tab you'd like to add:
+**Please note**: Only files with .html or .md suffixes are included, anything else is ignored. This can be useful if you need to include assets (images, javascript, css etc.) such as those generated by quarto.
 
-```yaml
-  - { 
-    name: 'extra', # Two tabs cannot share the same name
-    type: 'markdown', # embed/html/markdown
-    source: '_extras.md', # filename or embed url
-    label: 'Extra tab' # Optional: label for tab, defaults to capitalised name
-    }
-```
+The name of the file is used to generate the tab label for the extra content as follows:
 
-The options work as follows:
-* `name`: determines the id used by the html elements - must begin with a letter followed by any number of letters, digits, hyphens or underscores (no spaces)
-* `type`: specify whether your source file is written in markdown or html, or if it's a link to another page that you'd like to embed
-* `source`: the source filename or url for the additional content
-* `label`: the label you'd like to appear on the tab if different from capitalised name
+* The filename suffix (.md/.html is removed)
+* Any underscore(_) or hyphen (-) characters are replaced with spaces
+* Digits at the start of the filename are removed
+* Any whitespace remaining at the start or end of the name is removed
+* The name is converted to title case
 
-This is how you can embed content from a research data repository, or even a page you have built with [Quarto](https://quarto.org/) to explain your analysis.
+As an example, the tab label for `03_code-and_data.md` would be "Code And Data".
 
-### Authors
-You can also list all of the authors who have worked on the project in the frontmatter, and this list will appear at the top of the page and on the summary cards that appear on the main page of the site. To do this you will first need to add each authors' details to the site's people list. For each person you'd like to add to the site, create a new YAML file under `/_data/people/`; e.g. marie_curie.yml. Add the following fields:
-
-* name: how the name should be displayed
-* email: optional
-* github_username: optional
-
-Once this is done, you can include this person as an author on the project by adding the name of the YAML file (without the .yml suffix) to the author list:
-
-```yaml
-authors:
-- marie_curie
-- karl_popper
-```
+Tab order is alphabetical (except index.md which always appears first). To determine the order in which tabs appear, use numbers at the start of your filenames (e.g. `01_methods.md`, `02_privacy.md`, `03_data.html`).
 
 ## Step 4: Make a pull request
 
-When you're ready to publish your project, you can submit a pull request to merge your changes back into the main GitHub repository. If you originally cloned the code as described in step 2, you can push the branch you've created back up to GitHub as follows:
+To publish your project, you will need to merge the new files into the main branch on the GitHub repository. To do this you will need to push the branch you've created back up to GitHub and then submit a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). The pull request process allows us to review submissions before they are added to ensure they comply with our standards.
+
+### Pushing your branch to GitHub
+If you originally cloned the code as described in step 2, you can push the branch you've created back up to GitHub as follows:
 
 ```bash
 git push --set-upstream origin <name_of_your_branch>
 ```
 
-If you open the repository in GitHub, you should be able to see your branch listed in the drop down menu labelled main at the top of the list of files. 
+Then, if you open the repository in GitHub, you should be able to see your branch listed in the drop down menu labelled main at the top of the list of files. 
 
+Pushing to the repository triggers an automatic process which will generate metadata and prepend it to index.md. Once generated, if you're comfortable working with Jekyll, you can edit this metadata to do things like changing the automatically generated project title and tab labels.
+
+### Submitting a Pull Request
 To open a pull request:
 * Select Pull requests from the top navigation menu
 * Click the green 'New pull request' button
 * Select main from the left hand side dropdown labelled base (this should already be selected)
 * Select your branch from the right hand side dropdown labelled compare
 * Click 'Create pull request'
-* Add a title and description, including and details you think may be relevant for somebody reviewing your changes
+* Add a title and description, including any details you think may be relevant for somebody reviewing your changes
 * Then click 'Create pull request'
 
-Your pull request will then need to be approved by two reviewers who are chosen automatically. Reviewers may make comments or request changes before approving your submission so make sure you are able to receive notifications from GitHub in order to respond to their requests.
+Your pull request will then need to be approved by two reviewers who are chosen automatically from a pool of volunteer editors. Reviewers might sometimes make comments or request changes before approving your submission so please make sure you are able to receive notifications from GitHub in order to respond to their requests.
+
+Once approved, your project will be merged into the main branch and it will automatically appear on the live website.

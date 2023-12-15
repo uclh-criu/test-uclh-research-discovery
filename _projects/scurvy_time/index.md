@@ -1,24 +1,24 @@
 ---
 layout: project
-title: Example Project A
+title: Scurvy Time
 authors:
 - Test Testerson
-- Trial Runterton
+- Trial Runner
 tabs:
 - {
-  name: roozwhna,
-  type: md,
-  source: _gdpr.md,
-  label: Gdpr
-  }
-- {
-  name: ucqrttey,
+  name: vphbybwh,
   type: md,
   source: _analysis.md,
   label: Analysis
   }
 - {
-  name: ndflidwz,
+  name: npuufhpv,
+  type: md,
+  source: _gdpr.md,
+  label: Gdpr
+  }
+- {
+  name: kqfokysy,
   type: html,
   source: _data.html,
   label: Data

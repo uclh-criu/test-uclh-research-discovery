@@ -74,10 +74,36 @@ def get_project_dirs(name:str=None)->list[Path]:
         else:
             raise FileNotFoundError(f"No directory named {name} found under {PROJECTS_DIR}")
     else:
-        return [path for path in PROJECTS_DIR.iterdir() if path.is_dir()]
+        return [
+            path for path in PROJECTS_DIR.iterdir() 
+            if 
+              path.is_dir() 
+            and 
+              path.stem[0] != "_"
+            ]
     
 def get_random_string(len:int) -> str:
     return ''.join(random.choice(ascii_lowercase) for i in range(len))
+
+def get_tab_source_files(dir:Path) -> list[Path]:
+    source_files = list(dir.glob("*.md")) + list(dir.glob("*.html"))
+    # Remove index.md or index.html
+    for index in [dir/"index.md", dir/"index.html"]:
+        if index in source_files:
+            source_files.remove(index)
+    return source_files
+
+def generate_label_from_filename(stem:str) -> str:
+    """Given a filename stem (e.g. 03_code-and_data) convert this to a label by:
+    
+    1. replacing any - or _ characters with spaces
+    2. removing any digits at the start of the filename
+    3. removing any whitespace remaining at the start or end of the name
+    4. converting the name to title case"""
+    label = stem.replace("_"," ").replace("-"," ")
+    label = re.sub("^[\d]*","",label)
+    label = label.strip()
+    return label.title()
     
 def generate_title_yaml(dir:Path) -> str:
     """Title can come from title.txt, or the project folder name will be used.
@@ -107,24 +133,31 @@ def generate_tabs_yaml(dir:Path) -> str:
     index.html) and return a yaml block style list of tabs referencing those files.
     Attributes type, source, and label are generated from the file name, and name is
     a randomly generated string."""
-    extra_files = list(dir.glob("*.md")) + list(dir.glob("*.html"))
-    # Remove index.md or index.html as that's already accounted for
-    for index in [dir/"index.md", dir/"index.html"]:
-        if index in extra_files:
-            extra_files.remove(index)
+    source_files = get_tab_source_files(dir)
     tabs = "tabs:\n"
-    for file in extra_files:
+    for file in source_files:
         tabs += "- {\n"
         tabs += f"  name: {get_random_string(8)},\n"  # Used as html element id
         tabs += f"  type: {file.suffix[1:]},\n"  # Remove the dot from suffix
         tabs += f"  source: {file.name},\n"
-        tabs += f"  label: {file.stem.replace('_',' ').replace('-',' ').strip().title()}\n"
+        tabs += f"  label: {generate_label_from_filename(file.stem)}\n"
         tabs += "  }\n"
     return tabs
 
+def prepend_underscores_to_tab_sources(dir:Path)-> None:
+    """For each file in the directory with a .html or .md suffix, rename and prepend
+    with an underscore character (except for index.md)"""
+    source_files = get_tab_source_files(dir)
+    for file in source_files:
+        if not file.stem[0] == "_":
+            file.rename(file.with_stem("_"+file.stem))
+
 def jekyllify(dir:Path)->None:
-    """Given a project directory, generate yaml front matter and prepend to index.md"""
-    print(f"Adding front matter to {dir}")
+    """Given a project directory, add underscores to any .md or .html files other than 
+    index.md to ensure they do not get processed by Jekyll, then generate yaml front 
+    matter and prepend to index.md."""
+    print(f"Jekyllifying {dir}")
+    prepend_underscores_to_tab_sources(dir)
     front_matter = "---\n"
     front_matter += "layout: project\n"  # layout is always project
     front_matter += generate_title_yaml(dir)
@@ -135,7 +168,7 @@ def jekyllify(dir:Path)->None:
         content = f.read()
         f.seek(0,0)
         f.write(front_matter + content)
-
+    
 if __name__=="__main__":
     print("Jekyllify script running...")
     args = argument_parser.parse_args()
