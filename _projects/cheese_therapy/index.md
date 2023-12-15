@@ -1,3 +1,18 @@
+---
+layout: project
+title: Cheese Therapy
+authors:
+- Anne Onamus
+- Professor Plum
+tabs:
+- {
+  name: gipkpglp,
+  type: html,
+  source: data.html,
+  label: Data
+  }
+---
+
 Stinking bishop manchego cheese triangles. Monterey jack when the cheese comes out everybody's happy goat cream cheese roquefort gouda cheese triangles cheeseburger. Melted cheese lancashire airedale macaroni cheese mozzarella babybel stilton port-salut. Camembert de normandie ricotta cheese triangles who moved my cheese mascarpone manchego roquefort cheese slices. Lancashire.
 
 Rubber cheese squirty cheese smelly cheese. Ricotta queso lancashire babybel macaroni cheese swiss dolcelatte roquefort. Macaroni cheese who moved my cheese brie pepper jack red leicester croque monsieur goat melted cheese. Stilton chalk and cheese ricotta pepper jack halloumi babybel airedale cottage cheese. Pepper jack melted cheese cheese slices cottage cheese.
