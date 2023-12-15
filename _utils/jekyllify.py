@@ -97,12 +97,12 @@ def generate_label_from_filename(stem:str) -> str:
     """Given a filename stem (e.g. 03_code-and_data) convert this to a label by:
     
     1. replacing any - or _ characters with spaces
-    2. removing any digits at the start of the filename
-    3. removing any whitespace remaining at the start or end of the name
+    2. removing any whitespace remaining at the start or end of the name
+    3. removing any digits at the start of the filename
     4. converting the name to title case"""
     label = stem.replace("_"," ").replace("-"," ")
-    label = re.sub("^[\d]*","",label)
     label = label.strip()
+    label = re.sub("^[\d]*","",label)
     return label.title()
     
 def generate_title_yaml(dir:Path) -> str:
