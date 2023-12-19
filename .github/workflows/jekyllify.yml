@@ -3,10 +3,15 @@ run-name: ${{ github.actor }} project jekyllification
 on: 
   push:
   pull_request:
+    types:
+      - closed  # only run when PR is merged (step 1)
     branches:
-      - main
+      - main  # only run on PRs to main branch
+    paths:
+      - '_projects/**'  # only run when PR makes changes to _projects folder contents
 jobs:
   jekyllify-project-folders:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: write

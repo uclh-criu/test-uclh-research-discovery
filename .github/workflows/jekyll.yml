@@ -7,6 +7,11 @@
 name: Deploy Jekyll site to Pages
 
 on:
+  # Runs after the jekyllify projects workflow completes
+  workflow_run:
+    workflows: ["Jekyllify projects"]
+    types:
+    - completed
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
