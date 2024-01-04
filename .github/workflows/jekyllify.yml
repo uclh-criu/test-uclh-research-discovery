@@ -10,22 +10,28 @@ on:
 jobs:
   jekyllify:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout code repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
       - name: Run jekyllify script
         run: python ./_utils/jekyllify.py
+      - name: Set jekyllify branch name
+        id: vars
+        run: |
+          branch-name="jekyllify-patches/${{ github.head_ref }}"
+          echo "branch-name=$branch-name" >> $GITHUB_OUTPUT
       - name: Create PR to main
         uses: peter-evans/create-pull-request@v5
         with:
-          commit-message: Jekyllifying project folder content
-          branch: jekyllified_${{ github.ref_name }}
-          delete-branch: true
+          commit-message: Jekyllify action fixes
+          title: Fixes by Jekyllify action
+          body: This is an auto-generated PR with fixes by _utils/jekyllify.py
+          branch: ${{ steps.vars.outputs.branch-name }}
           base: main
   
