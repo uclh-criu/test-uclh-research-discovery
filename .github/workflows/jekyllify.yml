@@ -13,25 +13,24 @@ jobs:
     steps:
       - name: Checkout code repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
       - name: Run jekyllify script
         run: python ./_utils/jekyllify.py
-      - name: Set jekyllify branch name
-        id: vars
-        run: |
-          branch_name="jekyllify-patches/${{ github.head_ref }}"
-          echo "branch_name=$branch_name" >> $GITHUB_OUTPUT
-      - name: Create PR to main
-        uses: peter-evans/create-pull-request@v5
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit-message: Jekyllify action fixes
-          title: Fixes by Jekyllify action
-          body: This is an auto-generated PR with fixes by _utils/jekyllify.py
-          branch: ${{ steps.vars.outputs.branch-name }}
-          base: main
+          commit_message: Auto generate Jekyll front matter for projects
+  staging_pr:
+    runs-on: ubuntu-latest
+    needs: jekyllify
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v4
+      - name: Create PR to main
+        run: gh pr create -t jekyllified/${{ github.head_ref }}
+      
+
   
