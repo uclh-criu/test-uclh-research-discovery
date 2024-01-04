@@ -30,7 +30,7 @@ jobs:
       - name: Checkout code repository
         uses: actions/checkout@v4
       - name: Create PR to main
-        run: gh pr create -t jekyllified/${{ github.ref_name }}
+        run: gh pr create -t jekyllified/${{ github.ref_name }} -b "Automatically created PR to merge new jekyllified project content"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
