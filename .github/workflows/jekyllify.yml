@@ -23,16 +23,16 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Auto generate Jekyll front matter for projects
-  staging_pr:
-    runs-on: ubuntu-latest
-    needs: jekyllify
-    steps:
-      - name: Checkout code repository
-        uses: actions/checkout@v4
-      - name: Create PR to main
-        run: gh pr create -t jekyllified/${{ github.ref_name }} -b "Automatically created PR to merge new jekyllified project content"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # staging_pr:
+  #   runs-on: ubuntu-latest
+  #   needs: jekyllify
+  #   steps:
+  #     - name: Checkout code repository
+  #       uses: actions/checkout@v4
+  #     - name: Create PR to main
+  #       run: gh pr create -t jekyllified/${{ github.ref_name }} -b "Automatically created PR to merge new jekyllified project content"
+  #       env:
+  #         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
 
   
