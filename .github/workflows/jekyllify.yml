@@ -24,8 +24,8 @@ jobs:
       - name: Set jekyllify branch name
         id: vars
         run: |
-          branch-name="jekyllify-patches/${{ github.head_ref }}"
-          echo "branch-name=$branch-name" >> $GITHUB_OUTPUT
+          branch_name="jekyllify-patches/${{ github.head_ref }}"
+          echo "branch_name=$branch_name" >> $GITHUB_OUTPUT
       - name: Create PR to main
         uses: peter-evans/create-pull-request@v5
         with:
