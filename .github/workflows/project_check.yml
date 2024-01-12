@@ -2,8 +2,6 @@ name: Check project
 run-name: ${{ github.actor }} project check
 on: 
   pull_request:
-    paths:
-      - '_projects/**'  # only run when PR makes changes to _projects folder contents
 jobs:
   check_project_content:
     runs-on: ubuntu-latest
