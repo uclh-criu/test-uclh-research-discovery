@@ -1,0 +1,18 @@
+name: Check project
+run-name: ${{ github.actor }} project jekyllification
+on: 
+  pull_request:
+    paths:
+      - '_projects/**'  # only run when PR makes changes to _projects folder contents
+jobs:
+  check_project_content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Run Check projects script
+        run: python ./_utils/check_projects.py  # Should raise error if misconfigured
