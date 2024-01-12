@@ -21,9 +21,7 @@
     <div class="footer__legal">
         <ul>
             <li>Site last updated: {{site.time | date_to_string: "ordinal"  }}</li>
-            <li>Terms of Use</li>
-            <li>Privacy Statement</li>
-            <li>© UCLH 2023</li>
+            <li>© UCLH {{site.time | date: '%Y' }}</li>
         </ul>
     </div>
   </div>
