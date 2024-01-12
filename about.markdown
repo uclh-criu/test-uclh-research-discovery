@@ -4,7 +4,6 @@ title: About
 permalink: /about/
 ---
 
-### A public engagement site for UCLH research. 
 Learn about the many different
 research projects being carried out using patient data and how it is being
 used to help improve patient care. Each project provides information

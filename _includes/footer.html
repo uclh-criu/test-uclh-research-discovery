@@ -8,7 +8,7 @@
    
   <div class="footer__content d-flex justify-content-between"> 
     <div class="footer__logo">
-        <img width="400px" src="{{'assets/images/UCLH Values image.jpg' | relative_url}}">
+        <img width="400px" src="{{'assets/images/footer_img_placeholder.png' | relative_url}}">
     </div>
     <div class="footer__menu">
         <ul>
@@ -21,9 +21,7 @@
     <div class="footer__legal">
         <ul>
             <li>Site last updated: {{site.time | date_to_string: "ordinal"  }}</li>
-            <li>Terms of Use</li>
-            <li>Privacy Statement</li>
-            <li>© UCLH 2023</li>
+            <li>© UCLH {{site.time | date: '%Y' }}</li>
         </ul>
     </div>
   </div>

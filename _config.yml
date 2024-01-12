@@ -18,10 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: UCLH Research Discovery
+title: Health Data Science Demos
 email: t.couch@ucl.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
-  Public engagement site for UCLH research. Learn about the many different
+  Learn about the many different
   research projects being carried out using patient data and how it is being
   used to help improve patient care. Each project provides information
   about the steps taken to protect sensitive patient data, as well as access 
