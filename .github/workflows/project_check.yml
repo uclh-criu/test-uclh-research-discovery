@@ -1,5 +1,5 @@
 name: Check project
-run-name: ${{ github.actor }} project jekyllification
+run-name: ${{ github.actor }} project check
 on: 
   pull_request:
     paths:
