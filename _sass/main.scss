@@ -2,15 +2,23 @@
 	--uclh-dark-jade: rgb(0, 122, 133);
 	--uclh-light-jade: rgb(172, 220, 212);
 	--uclh-orange: rgb(248, 151, 29);
+	--primary: #6096B4;
+	--secondary: #BDCDD6;
+	--accent-colour: #8E3146;
+	--background-colour: #FFFFFF;
 }
 
 // define font sizes in arial
 
+body {
+	background-color: var(--background-colour);
+}
+
 a {
-	color: var(--uclh-dark-jade); 
+	color: var(--primary); 
 	text-decoration: none;
 	&:hover {
-		color: var(--uclh-orange);
+		color: var(--accent-colour);
 	}
 }
 
@@ -28,11 +36,11 @@ a {
 }
 
 #search-btn:hover {
-	background-color: var(--uclh-orange);
+	background-color: var(--accent-colour);
 }
 
 #search-btn.active {
-	background-color: var(--uclh-orange);
+	background-color: var(--accent-colour);
 }
 
 #search-form {
@@ -55,7 +63,7 @@ a {
 }
 
 .navbar {
-	background-color: var(--uclh-dark-jade);
+	background-color: var(--primary);
 	padding-left: 3rem !important;
 	padding-right: 5rem !important;
 
@@ -68,7 +76,7 @@ a {
 		color: #fff;
 	}
 	a:hover {
-		color: var(--uclh-orange);
+		color: var(--accent-colour);
 	}
 	.search-icon {
 		color: white;
@@ -77,49 +85,49 @@ a {
 
 .nav-tabs {
 	.nav-link {
-		color: var(--uclh-dark-jade);
+		color: var(--primary);
 		&:hover {
-			color: var(--uclh-orange);
+			color: var(--accent-colour);
 		}
 	}
 }
 
 .project-card {
 	.card-header {
-		background-color: var(--uclh-light-jade);
+		background-color: var(--secondary);
 	}
 	.card-footer {
-		background-color: var(--uclh-light-jade);
+		background-color: var(--secondary);
 	}
 	.btn-outline-primary {
-		color: var(--uclh-dark-jade);
-		border-color: var(--uclh-dark-jade);
-		background-color: #fff;
+		color: var(--primary);
+		border-color: var(--primary);
+		background-color: var(--secondary);
 		&:hover {
-			color: var(--uclh-orange);
-			border-color: var(--uclh-orange);
-			background-color: #fff;
+			color: var(--secondary);
+			border-color: var(--primary);
+			background-color: var(--primary);
 		}
 	}
 }
 
 .site-footer {
-	color: var(--uclh-dark-jade);
+	color: var(--primary);
 
 	.dark-divider {
-		color: var(--uclh-dark-jade);
+		color: var(--primary);
 	}
 	.light-divider {
-		color: var(--uclh-light-jade);
+		color: var(--secondary);
 	}
 	ul {
 		list-style-type: none;
 	}
 	a {
-		color: var(--uclh-dark-jade);
+		color: var(--primary);
 		text-decoration: none;
 		&:hover {
-			color: var(--uclh-orange);
+			color: var(--accent-colour);
 		}
 	}
 	.footer__logo {
@@ -138,6 +146,6 @@ a {
 
 	.github-icon {
 		padding-left: 0.3rem;
-		fill: var(--uclh-dark-jade);
+		fill: var(--primary);
 	}
 }

@@ -5,6 +5,8 @@ layout: page
 # Submitting a project for inclusion on this site
 If you are a UCLH researcher, you can submit details about your own research project(s) and have them added to this site.
 
+Whilst some experience of version control with git and GitHub would be beneficial, the guidance below tries to assume as little prior knowledge as possible and sticks to making changes via the GitHub user interface. Contributors with more experience may want to take a different approach.
+
 **Step 1**: [Upload datasets and code to a research data repository](#step-1-upload-datasets-and-code-to-a-research-data-repository)
 
 **Step 2**: [Clone our repository on GitHub](#step-2-clone-our-repository-on-github)
