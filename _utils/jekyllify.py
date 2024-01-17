@@ -22,7 +22,7 @@ from string import ascii_lowercase
 # Constants
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECTS_DIR = BASE_DIR / "_projects"
-
+STATUS_LIST = ["ongoing","completed"]  # First value is default
 
 argument_parser = argparse.ArgumentParser(
     prog="Jekyllifier",
@@ -117,6 +117,17 @@ def generate_title_yaml(dir:Path) -> str:
         title = dir.name.replace("_"," ").replace("-"," ").strip().title()
     return f"title: {title}\n"
 
+def generate_status_yaml(dir:Path) -> str:
+    status = ""
+    if (dir/"status.txt").exists():
+        with open(dir/"status.txt", "r") as f:
+            status = f.read()
+        if status not in STATUS_LIST:
+            raise ValueError(f"{status} is not a known status")
+    else:
+        status = STATUS_LIST[0]
+    return f"status: {status}\n"
+
 def generate_authors_yaml(dir:Path) -> str:
     """Create yaml block style list of authors, where each author appears
     on a separate line in authors.txt"""
@@ -161,6 +172,7 @@ def jekyllify(dir:Path)->None:
     front_matter = "---\n"
     front_matter += "layout: project\n"  # layout is always project
     front_matter += generate_title_yaml(dir)
+    front_matter += generate_status_yaml(dir)
     front_matter += generate_authors_yaml(dir)
     front_matter += generate_tabs_yaml(dir)
     front_matter += "---\n\n"
