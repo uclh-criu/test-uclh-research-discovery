@@ -1,9 +1,17 @@
 from pathlib import Path
 import re
 
+from jekyllify import STATUS_LIST
+
 # Constants
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECTS_DIR = BASE_DIR / "_projects"
+FRONT_MATTER_REQS = {
+    "layout": ["project"],
+    "title": None,
+    "status": STATUS_LIST,
+    "authors": None
+}
 
 def get_project_dirs()->list[Path]:
     """Return a list of all directories inside PROJECTS_DIR except those
@@ -21,6 +29,17 @@ def check_authors_dot_text(dir):
     if not (dir/"authors.txt").exists():
         raise FileNotFoundError(f"authors.txt missing from project folder {dir}")
     
+def check_front_matter(fm, index_file):
+    """Check front matter content conforms to required values"""
+    for param, value_list in FRONT_MATTER_REQS.items():
+        fm_item = re.search(f"{param}:(.*)\n", fm)
+        if not fm_item:
+            raise ValueError(f"{index_file} front matter does not contain {param}")
+        if value_list:  # If None, accept any value
+            fm_item_value = fm_item.groups(0)[0].strip()
+            if fm_item_value not in value_list:
+                raise ValueError(f"{index_file} front matter contains illegal value for {param}: {fm_item_value}")
+    
 def check_index(dir):
     """Raise exception if:
     - dir does not contain index.md or index.html
@@ -37,10 +56,20 @@ def check_index(dir):
         front_matter = re.search(regex, content)
         if not front_matter:
             raise Exception(f"{index_file} missing front-matter")
+        check_front_matter(front_matter.groups(0)[0], index_file)
+        
+def check_status(dir):
+    """Raise exception if status.txt exists and status is not in STATUS_LIST"""
+    if (dir/"status.txt").exists():
+        with open(dir/"status.txt", "r") as f:
+            status = f.read()
+        if status not in STATUS_LIST:
+            raise ValueError(f"{status} is not a known status")
     
 def run_checks(dir):
     check_authors_dot_text(dir)
     check_index(dir)
+    check_status(dir)
     
 if __name__=="__main__":
     project_dirs = get_project_dirs()
