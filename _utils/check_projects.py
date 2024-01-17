@@ -23,12 +23,7 @@ def get_project_dirs()->list[Path]:
         and 
         path.stem[0] != "_"
         ]
-    
-def check_authors_dot_text(dir):
-    """Raise exception if dir does not contain authors.txt"""
-    if not (dir/"authors.txt").exists():
-        raise FileNotFoundError(f"authors.txt missing from project folder {dir}")
-    
+     
 def check_front_matter(fm, index_file):
     """Check front matter content conforms to required values"""
     for param, value_list in FRONT_MATTER_REQS.items():
@@ -57,19 +52,9 @@ def check_index(dir):
         if not front_matter:
             raise Exception(f"{index_file} missing front-matter")
         check_front_matter(front_matter.groups(0)[0], index_file)
-        
-def check_status(dir):
-    """Raise exception if status.txt exists and status is not in STATUS_LIST"""
-    if (dir/"status.txt").exists():
-        with open(dir/"status.txt", "r") as f:
-            status = f.read()
-        if status not in STATUS_LIST:
-            raise ValueError(f"{status} is not a known status")
     
 def run_checks(dir):
-    check_authors_dot_text(dir)
     check_index(dir)
-    check_status(dir)
     
 if __name__=="__main__":
     project_dirs = get_project_dirs()
