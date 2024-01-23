@@ -11,6 +11,7 @@ layout: base
       "{{ project.url | slugify }}": {
         "title": "{{ project.title | xml_escape }}",
         "authors": "{{ project.authors | join: ", " | xml_escape }}",
+        "status": "{{ project.status }}",
         "category": "{{ project.category | xml_escape }}",
         "content": {{ project.content | strip_html | strip_newlines | jsonify }},
         "url": "{{ project.url | xml_escape | relative_url }}"
@@ -24,12 +25,17 @@ layout: base
     <div class="col">
     <div class="card mb-3 project-card" style="height: 18rem;">
       <div class="card-header">
-			  <h5>{{title}}</h5>
-        <small class="text-muted">
+        <div class="row justify-content-between">
+          <div class="col-9">
+			      <h5>{{title}}</h5>
+          </div>
+          <div class="col-3">
+					  <p><span class="badge rounded-pill {{status}}">{{status}}</span></p>
+				  </div>
+        </div>
+        <small class="text-muted authors">
           {{#if authors}}
-            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-					    <span class="p-author h-card" itemprop="name">{{ authors }}</span>
-            </span>
+            {{ truncate authors 40}}<span class="tooltiptext">{{authors}}</span>
           {{/if}}
 			  </small>
       </div>
