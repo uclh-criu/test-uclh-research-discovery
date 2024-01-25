@@ -55,20 +55,28 @@ If you're new to markdown:
 * This [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to help you get started.
 
 
-### authors.txt
-Your project folder must also include a list of people to be credited as authors on the project in a separate file called `authors.txt` with each name on a separate line. These names will appear at the top of the page, and on the summary card shown on the website's home page.
+### metadata.yml
+Your project folder must also include a `metadata.yml` file which adds information about your project. The file, written in [yaml format](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html), can include a list of project authors (required), the title, and its status.
 
-Make sure you are in your newly created project folder before clicking *Add file > Create new file*.
+An example metadata.yml file might look like this:
+```yaml
+title: Nature vs Nurture the UCLH Perspective
+status: ongoing
+authors:
+- Charles Darwin
+- Gregor Mendel
+- Rosalind Franklin
+```
+<dl>
+<dt>title</dt>
+<dd>By default the title for your project will be derived from the folder name by replacing any dash or hyphen characters with spaces, and converting the result to title case. Add a title here to override this</dd>
+<dt>status</dt>
+<dd>Each project page displays the current status of the project on a label displayed next to the title. This can be one of two options: ongoing or completed. If not included here, the default will be ongoing.</dd>
+<dt>authors</dt>
+<dd>This file must contain a list of authors added in the format shown in the example above</dd>
+</dl>
 
-![Example authors.txt]({{'assets/images/authors_txt.png' | relative_url}})
 
-### title.txt
-By default the title for your project will be derived from the folder name by replacing any dash or hyphen characters with spaces, and converting the result to title case.
-
-If you'd like to override this, add a file called `title.txt` and write the title for your project on the first line.
-
-### status.txt
-Each project page displays the current status of the project on a label displayed next to the title. This can be one of two options: ongoing or completed, with the default being ongoing. To set the status of your project, include a file called `status.txt` containing one of these two options.
 
 ### Extra content
 If you'd like to split content across several pages, or include an embed link for your data, you can add extra content by including additional markdown or html files in your project folder. This content will appear in separate tabs across the top of the page. 
