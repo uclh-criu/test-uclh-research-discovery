@@ -13,9 +13,7 @@ Whilst some experience of version control with git and GitHub would be beneficia
 
 **Step 3**: [Complete the project template](#step-3-complete-the-project-template)
 
-**Step 4**: [Generate the Jekyll front-matter](#step-4-generate-the-jekyll-front-matter)
-
-**Step 5**: [Make a pull request](#step-5-make-a-pull-request)
+**Step 4**: [Make a pull request](#step-4-make-a-pull-request)
 
 ## Step 1: Upload datasets and code to a research data repository
 
@@ -55,17 +53,26 @@ If you're new to markdown:
 * This [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to help you get started.
 
 
-### authors.txt
-Your project folder must also include a list of people to be credited as authors on the project in a separate file called `authors.txt` with each name on a separate line. These names will appear at the top of the page, and on the summary card shown on the website's home page.
+### metadata.yml
+Your project folder must also include a `metadata.yml` file which adds information about your project. The file, written in [yaml format](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html), can include a list of project authors (required), the title, and its status.
 
-Make sure you are in your newly created project folder before clicking *Add file > Create new file*.
-
-![Example authors.txt]({{'assets/images/authors_txt.png' | relative_url}})
-
-### title.txt
-By default the title for your project will be derived from the folder name by replacing any dash or hyphen characters with spaces, and converting the result to title case.
-
-If you'd like to override this, add a file called `title.txt` and write the title for your project on the first line.
+An example metadata.yml file might look like this:
+```yaml
+title: Nature vs Nurture the UCLH Perspective
+status: ongoing
+authors:
+- Charles Darwin
+- Gregor Mendel
+- Rosalind Franklin
+```
+<dl>
+<dt>title</dt>
+<dd>By default the title for your project will be derived from the folder name by replacing any dash or hyphen characters with spaces, and converting the result to title case. Add a title here to override this</dd>
+<dt>status</dt>
+<dd>Each project page displays the current status of the project on a label displayed next to the title. This can be one of two options: ongoing or completed. If not included here, the default will be ongoing.</dd>
+<dt>authors</dt>
+<dd>This file must contain a list of authors added in the format shown in the example above</dd>
+</dl>
 
 ### Extra content
 If you'd like to split content across several pages, or include an embed link for your data, you can add extra content by including additional markdown or html files in your project folder. This content will appear in separate tabs across the top of the page. 
@@ -88,40 +95,7 @@ The site builder only picks up files with .html or .md suffixes as extra content
 ### Quarto
 If you use Quarto to generate an html page, you will find it generates a whole folder of assets that need to be included. No problem, just include the Quarto assets folder in your project folder alongside the html file, and the relative links to those assets should still work.
 
-## Step 4: Generate the Jekyll front-matter
-When you've finished adding content, we need to add some metadata called front-matter to the top of your `index.md` file. The front-matter is read by the site generator and includes information about things like the project title, authors, and which extra pages to include. We have a utility script (`_utils/jekyllify.py`) which automatically generates this front-matter, which you can run through GitHub as follows:
-
-1. Select "Actions" from the top navigation menu<br> ![Actions in the top nav menu]({{'assets/images/actions_1.png' | relative_url}})
-2. If this is the first time you've run any actions in the fork, you'll see a warning message "Workflows aren't being run on this repository". Click the green button labelled "I understand my workflows, go ahead and enable them".
-3. On the following page, in a side menu titled Actions, you'll see a list of available actions. Click the one named Jekyllify projects.<br> ![Actions list]({{'assets/images/actions_3.png' | relative_url}})
-4. On this action's page, click "Run workflow" then "Run workflow" again to trigger it. After a few moments you should see a new entry appear in the table below with a yellow circle next to the workflow name.<br> ![Run workflow]({{'assets/images/actions_4.png' | relative_url}})
-5. When the workflow has run successfully, you should see a green circle with a tick replace the yellow dot. You can check to confirm something like this appears at the top of `index.md`:
-```
----
-layout: project
-title: My Project
-authors:
-- Alice Mill
-- Bob Bentham
-tabs:
-- {
-  name: vphbybwh,
-  type: md,
-  source: _analysis.md,
-  label: Analysis
-  }
-- {
-  name: kqfokysy,
-  type: html,
-  source: _data.html,
-  label: Data
-  }
----
-```
-
-If you update the project in future with a new title, authors, or extra content, you'll need to regenerate the front matter. To do this, edit `index.md` to remove the existing front-matter, then run the Jekyllify projects action again.
-
-## Step 5: Make a pull request
+## Step 4: Make a pull request
 
 To publish your project, you will need to merge your new files back into the original GitHub repository. To do this you will need to submit a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). The pull request process allows us to review submissions before they are added to ensure they comply with our standards.
 

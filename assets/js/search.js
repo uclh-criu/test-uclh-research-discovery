@@ -1,6 +1,10 @@
 (function() {
     function displaySearchResults(results, store) {
       var searchResults = document.getElementById('search-results');
+
+      Handlebars.registerHelper('truncate', function(content, length){
+        return content.substring(0,length - 3) + '...'
+      })
   
       if (results.length) { // Are there any results?
         var appendString = '';
@@ -13,7 +17,8 @@
             title: item.title,
             url: item.url,
             summary: item.content.substring(0, 200),
-            authors: item.authors
+            authors: item.authors,
+            status: item.status,
           };
           var html = template(context);
           searchResults.innerHTML += html

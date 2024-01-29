@@ -8,7 +8,7 @@ As a minimum the project folder should contain:
 - authors.txt: A list of authors to be credited for the project (one per line)
 
 ## Additional content
-Each other markdown file in the folder will be included as an additional tab 
+Each other markdown file in the folder will be included as an additional tab
 on the landing page. The tab label will be the filename in title case.
 """
 
@@ -18,10 +18,11 @@ import random
 import re
 from string import ascii_lowercase
 
+from titlecase import titlecase
+import yaml
 
-# Constants
-BASE_DIR = Path(__file__).resolve().parent.parent
-PROJECTS_DIR = BASE_DIR / "_projects"
+import check_projects as checks
+from check_projects import PROJECTS_DIR, STATUS_LIST
 
 
 argument_parser = argparse.ArgumentParser(
@@ -38,50 +39,18 @@ argument_parser.add_argument(
     "-p","--project", help=project_arg_help, default=None
 )
 
-def can_process_dir(dir:Path, raise_exception:bool=False) -> bool:
-    """Given a directory path, check the content meets the minimum
-    requirements, and that it has not previously been jekyllified."""
-    # Is there a file called index.md?
-    try:
-        with open(dir / "index.md","r") as index:
-            # If index.md already has front matter it should not be processed
-            content = index.read()
-            regex = "^---\n((.|\n)*|\n)---\n"  # Matches and captures front matter content
-            front_matter = re.search(regex, content)
-            if front_matter:
-                return False
-    except FileNotFoundError:
-        if raise_exception:
-            raise FileNotFoundError(f"index.md missing from project folder {dir}")
+def should_process_dir(dir:Path) -> bool:
+    """Given a directory path, check it meets requirements, but
+    return False if it already has front matter."""
+    checks.check_project_meets_requirements(dir)
+    # try to get front matter
+    index_file = checks.get_index(dir)
+    fm_yaml = checks.get_front_matter_yaml(index_file)
+    if fm_yaml:
         return False
-    # Is there a file called authors.txt?
-    try:
-        with open(dir / "authors.txt","r") as index:
-            pass
-    except FileNotFoundError:
-        if raise_exception:
-            raise FileNotFoundError(f"authors.txt missing from project folder {dir}")
-        return False
-    return True
-    
-def get_project_dirs(name:str=None)->list[Path]:
-    """Either return the path to the named project folder inside a list or, if no
-    name is provided, return a list of all directories inside PROJECTS_DIR."""
-    if name:
-        project_dir = PROJECTS_DIR / name
-        if project_dir.exists():
-            return [project_dir]
-        else:
-            raise FileNotFoundError(f"No directory named {name} found under {PROJECTS_DIR}")
     else:
-        return [
-            path for path in PROJECTS_DIR.iterdir() 
-            if 
-              path.is_dir() 
-            and 
-              path.stem[0] != "_"
-            ]
-    
+        return True
+
 def get_random_string(len:int) -> str:
     return ''.join(random.choice(ascii_lowercase) for i in range(len))
 
@@ -95,7 +64,7 @@ def get_tab_source_files(dir:Path) -> list[Path]:
 
 def generate_label_from_filename(stem:str) -> str:
     """Given a filename stem (e.g. 03_code-and_data) convert this to a label by:
-    
+
     1. replacing any - or _ characters with spaces
     2. removing any whitespace remaining at the start or end of the name
     3. removing any digits at the start of the filename
@@ -103,30 +72,19 @@ def generate_label_from_filename(stem:str) -> str:
     label = stem.replace("_"," ").replace("-"," ")
     label = label.strip()
     label = re.sub("^[\d]*","",label)
-    return label.title()
-    
-def generate_title_yaml(dir:Path) -> str:
-    """Title can come from title.txt, or the project folder name will be used.
-    If using the folder name, underscores and dashes are replaced with space
-    and then converted to title case."""
-    title=""
-    if (dir/"title.txt").exists():
-        with open(dir/"title.txt","r") as f:
-            title = f.read()
-    if not title:
-        title = dir.name.replace("_"," ").replace("-"," ").strip().title()
-    return f"title: {title}\n"
+    return titlecase(label)
 
-def generate_authors_yaml(dir:Path) -> str:
-    """Create yaml block style list of authors, where each author appears
-    on a separate line in authors.txt"""
-    authors = "authors:\n"
-    with open(dir / "authors.txt", "r") as f:
-        for author in f.readlines():
-            author = author.strip()  # remove any whitespace/newlines either side
-            if author:  # ignores blank lines
-                authors += f"- {author}\n"
-    return authors
+def generate_authors_yaml(authors:list[Path]) -> str:
+    """Create yaml block style list from a list
+    of author names."""
+    if not authors:
+        return ""
+    authors_yaml = "authors:\n"
+    for author in authors:
+        author = author.strip()  # remove any whitespace/newlines either side
+        if author:  # ignores blank lines
+            authors_yaml += f"- {author}\n"
+    return authors_yaml
 
 def generate_tabs_yaml(dir:Path) -> str:
     """Search the given directory for extra .md or .html files (other than index.md/
@@ -158,10 +116,13 @@ def jekyllify(dir:Path)->None:
     matter and prepend to index.md."""
     print(f"Jekyllifying {dir}")
     prepend_underscores_to_tab_sources(dir)
+    metadata = checks.get_metadata_yaml(dir)
     front_matter = "---\n"
     front_matter += "layout: project\n"  # layout is always project
-    front_matter += generate_title_yaml(dir)
-    front_matter += generate_authors_yaml(dir)
+    title = metadata.get('title') or generate_label_from_filename(dir.name)
+    front_matter += f"title: {title}\n"
+    front_matter += f"status: {metadata.get('status') or STATUS_LIST[0]}\n"
+    front_matter += generate_authors_yaml(metadata.get("authors"))
     front_matter += generate_tabs_yaml(dir)
     front_matter += "---\n\n"
     with open(dir/"index.md","r+") as f:
@@ -174,11 +135,14 @@ if __name__=="__main__":
     args = argument_parser.parse_args()
     if args.project:
         dirs_to_jekyllify = [
-            dir for dir in get_project_dirs(args.project)
-            if can_process_dir(dir, raise_exception=True)
+            dir for dir in checks.get_project_dirs(args.project)
+            if should_process_dir(dir)
         ]
     else:
-        dirs_to_jekyllify = [dir for dir in get_project_dirs() if can_process_dir(dir)]
+        dirs_to_jekyllify = [
+            dir for dir in checks.get_project_dirs() 
+            if should_process_dir(dir)
+            ]
     for dir in dirs_to_jekyllify:
         jekyllify(dir)
     print("Jekyllify script completed")
