@@ -1,33 +1,30 @@
-<footer class="site-footer h-card">
+  <footer class="site-footer h-card">
     <hr class="light-divider">
     <hr class="dark-divider">
     <hr class="light-divider">
     
     <data class="u-url" href="{{ "/" | relative_url }}"></data>
-
    
-  <div class="footer__content d-flex justify-content-between"> 
-    <div class="footer__logo">
+    <div class="footer__content d-flex justify-content-between"> 
+      <div class="footer__logo">
         <img width="400px" src="{{'assets/images/footer_img_placeholder.png' | relative_url}}">
-    </div>
-    <div class="footer__menu">
+      </div>
+      <div class="footer__menu">
         <ul>
-            <li><a href="{{ 'about' | relative_url}}">About</a></li>
-            <li><a href="{{ 'contribute/contact' | relative_url}}">Contact us</a></li>
-            <li><a href="{{ 'contribute/project_submission' | relative_url}}">Submit a Project</a></li>
-            <li><a href="https://{{site.data.github.url}}">GitHub <img width="25px" class="github-icon" src="{{'assets/images/github-icon.svg' | relative_url}}"></a></li>
+          <li><a href="{{ 'about' | relative_url}}">About</a></li>
+          <li><a href="{{ 'contribute/contact' | relative_url}}">Contact us</a></li>
+          <li><a href="{{ 'contribute/project_submission' | relative_url}}">Submit a Project</a></li>
+          <li><a href="https://{{site.data.github.url}}">GitHub <img width="25px" class="github-icon" src="{{'assets/images/github-icon.svg' | relative_url}}"></a></li>
         </ul>
-    </div>
-    <div class="footer__legal">
+      </div>
+      <div class="footer__legal">
         <ul>
-            <li>Site last updated: {{site.time | date_to_string: "ordinal"  }}</li>
-            <li>© UCLH {{site.time | date: '%Y' }}</li>
+          <li>Site last updated: {{site.time | date_to_string: "ordinal"  }}</li>
+          <li>© UCLH {{site.time | date: '%Y' }}</li>
         </ul>
+      </div>
     </div>
-  </div>
     <!-- <div class="container mt-5">
-        <hr>
-        
+      <hr>
     </div> -->
-  
   </footer>
