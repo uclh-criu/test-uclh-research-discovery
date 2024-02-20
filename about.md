@@ -20,12 +20,14 @@ own projects, with as much details as they can, and giving access to any
 synthetic data or non-sensitive data that can be shared publicly and is required
 to understand their methodology.
 
-# Founders
+
+## Founders
+
 The platform was developed in collaboration between the teams at UCL/UCLH BRC
 CRIU and UCL ARC, with support from the CHIMERA Center.
 
 
-## CHIMERA Center
+### CHIMERA Center
 
 ![CHIMERA Center logo]({{site.baseurl}}/assets/images/logo_ucl_chimera.jpg)
 
@@ -47,7 +49,7 @@ models of how our body is behaving during ill health and recovery, to improve
 care.
 
 
-## UCL/UCLH BRC CRIU
+### UCL/UCLH BRC CRIU
 
 https://www.uclhospitals.brc.nihr.ac.uk/criu/
 
@@ -66,7 +68,7 @@ The main goals are to:
    hospitals.
 
 
-## UCL ARC
+### UCL ARC
 
 https://www.ucl.ac.uk/arc/
 
