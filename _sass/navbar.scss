@@ -1,0 +1,38 @@
+/**
+ * Header and Navbar
+ */
+
+.navbar-wrapper {
+	background-color: var(--primary);
+}
+
+.navbar {
+	a:hover {
+		color: var(--accent-colour);
+	}
+
+	.navbar-brand {
+		color: white;
+		font: 800 2rem Arial, Helvetica, sans-serif;
+	}
+	.navbar-brand:hover{
+		color: white;
+	}
+	.nav-item,
+	.nav-link {
+		color: white;
+	}
+	
+	.search-icon {
+		color: white;
+	}
+}
+
+.nav-tabs {
+	.nav-link {
+		color: var(--primary);
+		&:hover {
+			color: var(--accent-colour);
+		}
+	}
+}

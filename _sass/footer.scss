@@ -1,0 +1,54 @@
+/**
+ * Footer
+ */
+
+.site-footer {
+	color: var(--primary);
+
+	.dark-divider {
+		color: var(--primary);
+	}
+
+	.light-divider {
+		color: var(--secondary);
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	a {
+		color: var(--primary);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--accent-colour);
+		}
+	}
+	
+	.footer-logo {
+		padding-left: 1rem;
+	}
+
+	.footer-legal {
+		li {
+			font-size: .9rem;
+		}
+	}
+
+	.github-icon {
+		padding-left: .3rem;
+		fill: var(--primary);
+	}
+}
+
+// Large screens
+@media (min-width: 992px) {
+	.footer-menu {
+		li {
+			margin: 0 .5rem;
+		}
+	}
+}

@@ -22,79 +22,14 @@ a {
 	}
 }
 
+@import "navbar";
+@import "search";
+@import "footer";
+
+
 #data iframe {
 	margin: 1rem;
 	background-color: gray;
-}
-
-#search-btn {
-	transition: background-color 1s;
-	z-index: 2;
-	svg {
-		margin-top: -0.25rem;
-	}
-}
-
-#search-btn:hover {
-	background-color: var(--accent-colour);
-}
-
-#search-btn.active {
-	background-color: var(--accent-colour);
-}
-
-#search-form {
-	display:none;
-}
-
-#search-form.visible {
-	display:block;
-}
-
-#search-box {
-	opacity: 0%;
-	width:30px;
-	transition: all 2s ease;
-}
-
-#search-box.expanded {
-	opacity: 100%;
-	width:200px;
-}
-
-.navbar {
-	background-color: var(--primary);
-	padding-left: 3rem !important;
-	padding-right: 5rem !important;
-
-	a:hover {
-		color: var(--accent-colour);
-	}
-
-	.navbar-brand {
-		color: #fff;
-		font: 800 2rem Arial, Helvetica, sans-serif;
-	}
-	.navbar-brand:hover{
-		color: #fff;
-	}
-	.nav-item,
-	.nav-link {
-		color: #fff;
-	}
-	
-	.search-icon {
-		color: white;
-	}
-}
-
-.nav-tabs {
-	.nav-link {
-		color: var(--primary);
-		&:hover {
-			color: var(--accent-colour);
-		}
-	}
 }
 
 .project-card {
@@ -113,45 +48,6 @@ a {
 			border-color: var(--secondary);
 			background-color: var(--accent-colour);
 		}
-	}
-}
-
-.site-footer {
-	color: var(--primary);
-
-	.dark-divider {
-		color: var(--primary);
-	}
-	.light-divider {
-		color: var(--secondary);
-	}
-	ul {
-		list-style-type: none;
-	}
-	a {
-		color: var(--primary);
-		text-decoration: none;
-		&:hover {
-			color: var(--accent-colour);
-		}
-	}
-	.footer__logo {
-		padding-left: 1rem;
-	}
-	.footer__menu li {
-		display: inline-block;
-		margin-left: 1rem;
-	}
-	.footer__legal {
-		padding-right: 2rem;
-		li {
-			font-size: 90%;
-		}
-	}
-
-	.github-icon {
-		padding-left: 0.3rem;
-		fill: var(--primary);
 	}
 }
 
