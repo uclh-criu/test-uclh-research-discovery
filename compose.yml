@@ -5,9 +5,11 @@ services:
     image: data-science-demos:0.1
     build:
       context: .
-    environment:
-      - UID=1000
-      - GID=1000
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+        PROXY: ${PROXY}
+    env_file: .env
     ports:
       - 4000:4000
     volumes:
