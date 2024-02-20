@@ -29,7 +29,7 @@ CRIU and UCL ARC, with support from the CHIMERA Center.
 
 ### CHIMERA Center
 
-![CHIMERA Center logo]({{site.baseurl}}/assets/images/logo_ucl_chimera.jpg)
+![CHIMERA Center logo]({{"/assets/images/logo_ucl_chimera.jpg" | relative_url }})
 
 The CHIMERA (Collaborative Healthcare Innovation Through Mathematics,
 Engineering and AI) Centre examines anonymised data from 40,000 patients to
