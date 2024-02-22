@@ -3,11 +3,13 @@
  */
 
 #search-btn {
+	color: white;
 	transition: background-color .3s;
 	z-index: 2;
 
 	svg {
 		margin-top: -0.25rem;
+		fill: white;
 	}
 }
 

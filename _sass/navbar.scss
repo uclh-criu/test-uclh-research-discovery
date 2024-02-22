@@ -13,16 +13,22 @@
 
 	.navbar-brand {
 		color: white;
-		font: 800 2rem Arial, Helvetica, sans-serif;
+		font-size: 1.5rem;
+		font-weight: 700;
 	}
 	.navbar-brand:hover{
 		color: white;
 	}
+
 	.nav-item,
 	.nav-link {
 		color: white;
 	}
-	
+
+	.navbar-toggler {
+		--bs-navbar-toggler-border-color: rgba(255, 255, 255, .5);
+	}
+
 	.search-icon {
 		color: white;
 	}

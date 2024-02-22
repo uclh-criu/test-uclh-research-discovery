@@ -1,10 +1,8 @@
 <div class="footer-wrapper">
-  <hr class="dark-divider">
-
-  <footer class="site-footer container mb-3">    
+  <footer class="site-footer container">
     <data class="u-url" href="{{ '/' | relative_url }}"></data>
-   
-    <div class="footer-content row"> 
+
+    <div class="footer-content row">
       <div class="footer-logo col-lg-3">
         <!-- <img width="400px" src="{{'assets/images/footer_img_placeholder.png' | relative_url}}"> -->
       </div>
@@ -19,7 +17,7 @@
       </div>
       <div class="footer-legal col-lg-3">
         <ul class="d-flex flex-column text-center text-lg-end">
-          <li>Site last updated: {{ site.time | date_to_string: "ordinal" }}</li>
+          <li>Site last updated: {{ site.time | date_to_string: "simple" }}</li>
           <li>©UCLH {{ site.time | date: '%Y' }}</li>
         </ul>
       </div>
