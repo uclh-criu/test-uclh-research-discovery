@@ -1,0 +1,50 @@
+/**
+ * Footer
+ */
+
+.footer-wrapper {
+	padding: 1rem 0 1.5rem 0;
+    background: var(--background-colour-highlight);
+	border-top: 1px solid darken($background-colour-highlight, 20%);
+}
+
+.site-footer {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	a {
+		color: var(--text-colour);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--primary);
+		}
+	}
+
+	.footer-logo {
+		padding-left: 1rem;
+	}
+
+	.footer-legal {
+		li {
+			font-size: .9rem;
+		}
+	}
+
+	.github-icon {
+		padding-left: .3rem;
+		fill: var(--primary);
+	}
+}
+
+// Large screens
+@media (min-width: 992px) {
+	.footer-menu {
+		li {
+			margin: 0 .5rem;
+		}
+	}
+}

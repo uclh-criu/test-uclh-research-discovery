@@ -1,198 +1,132 @@
+// Static (SCSS) variables, required to use functions like "darken"
+$uclh-dark-jade: rgb(0, 122, 133);
+$uclh-light-jade: rgb(172, 220, 212);
+$uclh-orange: rgb(248, 151, 29);
+$uclh-cool-dark-blue: rgb(0, 83, 155);
+$uclh-cool-blue: rgb(0, 147, 208);
+
+$primary: $uclh-cool-dark-blue;
+$secondary: #BDCDD6;
+$accent-colour: #8E3146;
+$background-colour: #FFFFFF;
+
+$background-colour-highlight: #E4E5E6;
+$text-colour: #333333;
+
+// Dynamic (CSS) variables used at run-time, interpolated from SCSS
 :root {
-	--uclh-dark-jade: rgb(0, 122, 133);
-	--uclh-light-jade: rgb(172, 220, 212);
-	--uclh-orange: rgb(248, 151, 29);
-	--primary: #6096B4;
-	--secondary: #BDCDD6;
-	--accent-colour: #8E3146;
-	--background-colour: #FFFFFF;
+	--uclh-dark-jade: #{ $uclh-dark-jade };
+	--uclh-light-jade: #{ $uclh-light-jade };
+	--uclh-orange: #{ $uclh-orange };
+	--uclh-cool-dark-blue: #{ $uclh-cool-dark-blue };
+	--uclh-cool-blue:  #{ $uclh-cool-blue };
+
+	--primary: #{ $primary };
+	--secondary: #{ $secondary };
+	--accent-colour: #{ $accent-colour };
+	--background-colour: #{ $background-colour };
+
+	--background-colour-highlight: #{ $background-colour-highlight };
+	--text-colour: #{ $text-colour };
 }
 
-// define font sizes in arial
 
-body {
+html, body {
+	height: 100%;
+	color: var(--text-colour);
 	background-color: var(--background-colour);
 }
 
 a {
-	color: var(--primary); 
+	color: var(--primary);
 	text-decoration: none;
 	&:hover {
 		color: var(--accent-colour);
 	}
 }
 
+@import "navbar";
+@import "search";
+@import "footer";
+
+
 #data iframe {
 	margin: 1rem;
 	background-color: gray;
 }
 
-#search-btn {
-	transition: background-color 1s;
-	z-index: 2;
-	svg {
-		margin-top: -0.25rem;
-	}
+.body-inner {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	height: 100%;
 }
 
-#search-btn:hover {
-	background-color: var(--accent-colour);
-}
-
-#search-btn.active {
-	background-color: var(--accent-colour);
-}
-
-#search-form {
-	display:none;
-}
-
-#search-form.visible {
-	display:block;
-}
-
-#search-box {
-	opacity: 0%;
-	width:30px;
-	transition: all 2s ease;
-}
-
-#search-box.expanded {
-	opacity: 100%;
-	width:200px;
-}
-
-.navbar {
-	background-color: var(--primary);
-	padding-left: 3rem !important;
-	padding-right: 5rem !important;
-
-	a:hover {
-		color: var(--accent-colour);
-	}
-
-	.navbar-brand {
-		color: #fff;
-		font: 800 2rem Arial, Helvetica, sans-serif;
-	}
-	.navbar-brand:hover{
-		color: #fff;
-	}
-	.nav-item,
-	.nav-link {
-		color: #fff;
-	}
-	
-	.search-icon {
-		color: white;
-	}
-}
-
-.nav-tabs {
-	.nav-link {
-		color: var(--primary);
-		&:hover {
-			color: var(--accent-colour);
-		}
-	}
+.content {
+	padding: 1rem 0;
 }
 
 .project-card {
 	.card-header {
 		background-color: var(--secondary);
 	}
+
 	.card-footer {
 		background-color: var(--secondary);
 	}
+
 	.btn-outline-primary {
 		color: var(--accent-colour);
 		border-color: var(--accent-colour);
 		background-color: var(--secondary);
+
 		&:hover {
 			color: #fff;
 			border-color: var(--secondary);
 			background-color: var(--accent-colour);
 		}
 	}
-}
 
-.site-footer {
-	color: var(--primary);
-
-	.dark-divider {
-		color: var(--primary);
-	}
-	.light-divider {
-		color: var(--secondary);
-	}
-	ul {
-		list-style-type: none;
-	}
-	a {
-		color: var(--primary);
-		text-decoration: none;
-		&:hover {
-			color: var(--accent-colour);
-		}
-	}
-	.footer__logo {
-		padding-left: 1rem;
-	}
-	.footer__menu li {
-		display: inline-block;
-		margin-left: 1rem;
-	}
-	.footer__legal {
-		padding-right: 2rem;
-		li {
-			font-size: 90%;
-		}
-	}
-
-	.github-icon {
-		padding-left: 0.3rem;
-		fill: var(--primary);
+	.badge {
+		font-size: 0.75em;
 	}
 }
 
 .badge {
 	font-size: 0.5em;
-	&.ongoing{
+
+	&.ongoing {
 		background-color: var(--accent-colour);
 	}
-	&.completed{
+
+	&.completed {
 		background-color: var(--primary);
 	}
 }
 
-.project-card .badge {
-	font-size: 0.75em;
+.authors {
+	.tooltiptext {
+		visibility: hidden;
+		width: 300px;
+		background-color: #555;
+		color: #fff;
+		text-align: center;
+		padding: 5px 0;
+		border-radius: 6px;
+
+		/* Position the tooltip text */
+		position: absolute;
+		z-index: 1;
+		top: 35px;
+		left: 70px;
+		margin-left: -60px;
+
+		/* Fade in tooltip */
+		opacity: 0;
+		transition: opacity 0.3s;
+	}
+
+  	&:hover .tooltiptext {
+		visibility: visible;
+		opacity: 1;
+	}
 }
-
-.authors .tooltiptext {
-  visibility: hidden;
-  width: 300px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-
-  /* Position the tooltip text */
-  position: absolute;
-  z-index: 1;
-  top: 35px;
-  left: 70px;
-//   bottom: 2em;
-//   left: 50%;
-  margin-left: -60px;
-
-  /* Fade in tooltip */
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.authors:hover .tooltiptext {
-	visibility: visible;
-	opacity: 1;
-  }

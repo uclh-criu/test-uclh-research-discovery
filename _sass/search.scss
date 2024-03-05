@@ -1,0 +1,47 @@
+/**
+ * Search form and results
+ */
+
+#search-btn {
+	color: white;
+	transition: background-color .3s;
+	z-index: 2;
+
+	svg {
+		margin-top: -0.25rem;
+		fill: white;
+	}
+}
+
+#search-btn:hover {
+	background-color: var(--accent-colour);
+}
+
+#search-btn.active {
+	background-color: var(--accent-colour);
+}
+
+#search-form {
+	display: none;
+	width: 0;
+	transition: all .5s ease;
+
+	&.visible {
+		display: inline-block;
+		width: 200px;
+		margin-right: .5rem;
+	}
+}
+
+#search-box {
+	opacity: 0;
+	width: 0;
+	padding: .375rem 0;
+	transition: all .5s ease;
+
+	&.expanded {
+		opacity: 1;
+		width: 200px;
+		padding: .375rem .75rem;
+	}
+}

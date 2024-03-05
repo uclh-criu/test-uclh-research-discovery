@@ -1,13 +1,9 @@
 <div class="col">
 	<div class="card mb-3 project-card" style="height: 18rem">
 		<div class="card-header">
-			<div class="row justify-content-between">
-				<div class="col-9">
-					<h5>{{project.title}}</h5>
-				</div>
-				<div class="col-3">
-					<p><span class="badge rounded-pill {{project.status}}">{{project.status}}</span></p>
-				</div>
+			<div class="d-flex justify-content-between">
+        <h5>{{project.title}}</h5>
+				<div><span class="badge rounded-pill {{project.status}}">{{project.status}}</span></div>
 			</div>
 
 			<small class="text-muted authors">
@@ -24,20 +20,14 @@
 		</div>
 
 		{% if project.img %}
-		<img
-			src="{{project.img.url}}"
-			class="card-img-top"
-			alt="{{project.img.alt}}"
-		/>
-		{% endif %}
+		<img src="{{project.img.url}}" class="card-img-top" alt="{{project.img.alt}}" />
+    {% endif %}
+
 		<div class="card-body">
-			<p class="card-text">{{project.excerpt | truncate: 160}}</p>
-			<p class="card-text"></p>
+			<p class="card-text">{{project.excerpt | remove: "<p>" | remove: "</p>" | truncate: 160}}</p>
 		</div>
 		<div class="card-footer">
-			<a href="{{project.url | relative_url }}" class="btn btn-outline-primary"
-				>Details</a
-			>
+			<a href="{{project.url | relative_url }}" class="btn btn-outline-primary">Details</a>
 		</div>
 	</div>
 </div>

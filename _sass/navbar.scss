@@ -1,0 +1,44 @@
+/**
+ * Header and Navbar
+ */
+
+.navbar-wrapper {
+	background-color: var(--primary);
+}
+
+.navbar {
+	a:hover {
+		color: var(--accent-colour);
+	}
+
+	.navbar-brand {
+		color: white;
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+	.navbar-brand:hover{
+		color: white;
+	}
+
+	.nav-item,
+	.nav-link {
+		color: white;
+	}
+
+	.navbar-toggler {
+		--bs-navbar-toggler-border-color: rgba(255, 255, 255, .5);
+	}
+
+	.search-icon {
+		color: white;
+	}
+}
+
+.nav-tabs {
+	.nav-link {
+		color: var(--primary);
+		&:hover {
+			color: var(--accent-colour);
+		}
+	}
+}
