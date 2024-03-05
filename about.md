@@ -51,7 +51,7 @@ care.
 
 ### UCL/UCLH BRC CRIU
 
-https://www.uclhospitals.brc.nihr.ac.uk/criu/
+[https://www.uclhospitals.brc.nihr.ac.uk/criu/](https://www.uclhospitals.brc.nihr.ac.uk/criu/)
 
 The UCL/UCLH Biomedical Research Center (BRC) Clinical Research and Informatics
 Unit (CRIU) consists of a team of clinicians, researchers, software developers,
@@ -70,7 +70,7 @@ The main goals are to:
 
 ### UCL ARC
 
-https://www.ucl.ac.uk/arc/
+[https://www.ucl.ac.uk/arc/](https://www.ucl.ac.uk/arc/)
 
 The Advanced Research Computing Centre (ARC) is UCL's research, innovation and
 service centre for the tools, practices and systems that enable computational
