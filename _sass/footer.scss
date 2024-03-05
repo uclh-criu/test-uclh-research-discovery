@@ -16,11 +16,12 @@
 	}
 
 	a {
-		color: var(--text-colour);
+		color: $body-color;
 		text-decoration: none;
-
+		
 		&:hover {
-			color: var(--primary);
+			// color: var(--bs-link-hover-color);
+			text-decoration: underline;
 		}
 	}
 
@@ -41,7 +42,7 @@
 }
 
 // Large screens
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
 	.footer-menu {
 		li {
 			margin: 0 .5rem;
