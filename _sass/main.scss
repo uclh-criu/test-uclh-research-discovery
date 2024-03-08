@@ -33,6 +33,10 @@ html, body {
 
 .content {
 	padding: 1rem 0;
+
+	img {
+		@include img-fluid();
+	}
 }
 
 .post {

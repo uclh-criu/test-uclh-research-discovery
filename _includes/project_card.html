@@ -1,17 +1,17 @@
 <div class="card project-card">
 	<div class="card-header">
-		<div class="project-title">
+		<nav class="project-title">
 			<a href="{{project.url | relative_url }}">{{project.title}}</a>
 			<span class="badge rounded-pill {{project.status}}" style="float: right">{{project.status}}</span>
-		</div>
+		</nav>
 
 		<small class="text-muted authors">
 			{%- if project.authors -%}
 				{% capture authors %}
 					{%- for author in project.authors -%}
 					{{ author }}
-					{%- if forloop.last == false -%},{%- endif -%} 
-				{%- endfor -%} 
+					{%- if forloop.last == false -%},{%- endif -%}
+				{%- endfor -%}
 				{% endcapture %}
 				{{authors | replace: ",", ", " | truncate:40}}<span class="tooltiptext">{{authors | replace: ",", ", "}}</span>
 			{%- endif -%}
