@@ -1,11 +1,11 @@
 /*
  * This file includes Bootstrap components as required by the website.
  *
- * Boostrap SCSS sources need to be downloaded into "_lib/bootstrap-<version>".
+ * Boostrap library is now managed as a gem and downloaded into $GEM_HOME (~/gems).
  */
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "../_lib/bootstrap-5.3.3/scss/functions";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/functions";
 
 // 2. Include any default variable overrides here
 @import "brand_colours";
@@ -26,52 +26,52 @@ $navbar-dark-color:                 $white !default;
 $navbar-dark-toggler-border-color:  rgba($white, .5) !default;
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
-// @import "../_lib/bootstrap-5.3.3/scss/bootstrap.scss";
-@import "../_lib/bootstrap-5.3.3/scss/variables";
-@import "../_lib/bootstrap-5.3.3/scss/variables-dark";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/bootstrap.scss";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/variables";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/variables-dark";
 
 // 4. Include any default map overrides here
 
 // 5. Include remainder of required parts
-@import "../_lib/bootstrap-5.3.3/scss/maps";
-@import "../_lib/bootstrap-5.3.3/scss/mixins";
-@import "../_lib/bootstrap-5.3.3/scss/root";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/maps";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/mixins";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/root";
 
 // 6. Optionally include any other parts as needed
-@import "../_lib/bootstrap-5.3.3/scss/utilities";
-@import "../_lib/bootstrap-5.3.3/scss/reboot";
-// @import "../_lib/bootstrap-5.3.3/scss/type";
-// @import "../_lib/bootstrap-5.3.3/scss/images";
-@import "../_lib/bootstrap-5.3.3/scss/containers";
-@import "../_lib/bootstrap-5.3.3/scss/grid";
-// @import "../_lib/bootstrap-5.3.3/scss/tables";
-@import "../_lib/bootstrap-5.3.3/scss/forms";
-@import "../_lib/bootstrap-5.3.3/scss/buttons";
-@import "../_lib/bootstrap-5.3.3/scss/transitions";
-@import "../_lib/bootstrap-5.3.3/scss/dropdown";
-// @import "../_lib/bootstrap-5.3.3/scss/button-group";
-@import "../_lib/bootstrap-5.3.3/scss/nav";
-@import "../_lib/bootstrap-5.3.3/scss/navbar";
-@import "../_lib/bootstrap-5.3.3/scss/card";
-// @import "../_lib/bootstrap-5.3.3/scss/accordion";
-// @import "../_lib/bootstrap-5.3.3/scss/breadcrumb";
-// @import "../_lib/bootstrap-5.3.3/scss/pagination";
-@import "../_lib/bootstrap-5.3.3/scss/badge";
-// @import "../_lib/bootstrap-5.3.3/scss/alert";
-// @import "../_lib/bootstrap-5.3.3/scss/progress";
-// @import "../_lib/bootstrap-5.3.3/scss/list-group";
-// @import "../_lib/bootstrap-5.3.3/scss/close";
-// @import "../_lib/bootstrap-5.3.3/scss/toasts";
-// @import "../_lib/bootstrap-5.3.3/scss/modal";
-// @import "../_lib/bootstrap-5.3.3/scss/tooltip";
-// @import "../_lib/bootstrap-5.3.3/scss/popover";
-// @import "../_lib/bootstrap-5.3.3/scss/carousel";
-// @import "../_lib/bootstrap-5.3.3/scss/spinners";
-// @import "../_lib/bootstrap-5.3.3/scss/offcanvas";
-// @import "../_lib/bootstrap-5.3.3/scss/placeholders";
-// @import "../_lib/bootstrap-5.3.3/scss/helpers";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/utilities";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/reboot";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/type";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/images";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/containers";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/grid";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/tables";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/forms";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/buttons";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/transitions";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/dropdown";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/button-group";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/nav";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/navbar";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/card";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/accordion";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/breadcrumb";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/pagination";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/badge";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/alert";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/progress";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/list-group";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/close";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/toasts";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/modal";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/tooltip";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/popover";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/carousel";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/spinners";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/offcanvas";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/placeholders";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/helpers";
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "../_lib/bootstrap-5.3.3/scss/utilities/api";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/utilities/api";
 
 // 8. Add additional custom code here
