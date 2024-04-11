@@ -1,7 +1,7 @@
 ---
 layout: project
 title: UCLH CC-HIC Synthetic Data
-status: demo
+status: completed
 authors:
 - NIHR CRIU SAFEHR Team
 
