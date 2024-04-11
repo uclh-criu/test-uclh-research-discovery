@@ -5,5 +5,8 @@ _site
 vendor
 *.pyc
 
+# OS specific files
+.DS_Store
+
 # Environment files
 .env
