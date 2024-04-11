@@ -1,6 +1,4 @@
 
-### Project Detail
-
 ##### Theme : 
 NgTube
 

@@ -1,6 +1,4 @@
 
-### Appendix :
-
 ##### 2011 Race Census figure in England and Wales
 
 | Ethnic Group                                                                                   | Population(%) |
