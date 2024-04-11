@@ -8,6 +8,7 @@ $uclh-cool-blue: rgb(0, 147, 208);
 $primary: $uclh-cool-dark-blue;
 $secondary: #BDCDD6;
 $accent-colour: #8E3146;
+$demo-colour:#49B706;
 $background-colour: #FFFFFF;
 
 $background-colour-highlight: #E4E5E6;
@@ -23,6 +24,7 @@ $text-colour: #333333;
 
 	--primary: #{ $primary };
 	--secondary: #{ $secondary };
+	--demo-colour: #{ $demo-colour };
 	--accent-colour: #{ $accent-colour };
 	--background-colour: #{ $background-colour };
 
@@ -93,6 +95,10 @@ a {
 
 .badge {
 	font-size: 0.5em;
+
+	&.demo {
+		background-color: var(--demo-colour);
+	}
 
 	&.ongoing {
 		background-color: var(--accent-colour);
