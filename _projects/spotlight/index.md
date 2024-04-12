@@ -8,11 +8,13 @@ tabs:
 - {
   name: spotlight_data,
   source: data.md,
+  type: md,
   label: Data
   }
 - {
   name: spotlight_results,
   source: results.md,
+  type: md,
   label: Results
   }
 ---
