@@ -26,4 +26,4 @@ tabs:
   }
 ---
 
-This is the demo version synthetic data for CC-HIC
+This is the demo version synthetic data for Critical Care.

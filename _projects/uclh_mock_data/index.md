@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Uclh Mock Data
+title: UCLH Mock Data
 status: completed
 authors:
 - Amusing Automaton
