@@ -3,13 +3,14 @@ layout: page
 ---
 
 # Submitting a project for inclusion on this site
+
 If you are a UCLH researcher, you can submit details about your own research project(s) and have them added to this site.
 
 Whilst some experience of version control with git and GitHub would be beneficial, the guidance below tries to assume as little prior knowledge as possible and sticks to making changes via the GitHub user interface. Contributors with more experience may want to take a different approach.
 
 **Step 1**: [Upload datasets and code to a research data repository](#step-1-upload-datasets-and-code-to-a-research-data-repository)
 
-**Step 2**: [Clone our repository on GitHub](#step-2-clone-our-repository-on-github)
+**Step 2**: [Clone our repository on GitHub](#step-2-fork-our-repository-on-github)
 
 **Step 3**: [Complete the project template](#step-3-complete-the-project-template)
 
@@ -37,26 +38,32 @@ In the form that follows, select your username from the Owner dropdown menu, the
 
 Once you have forked the repository, you can start adding your project. The pages for each project are kept in separate folders under `/_projects`. Start by creating a new folder for your project containing an `index.md` file.
 
-### index.md
+### The `index.md` file
+
 Whilst you might be used to making a new folder before creating the files that go in it, GitHub doesn't actually let you create an empty folder, so you need to create both the folder and your first file at the same time. Every project folder must include a file called index.md, which serves as the landing page for your project, so that's probably the best place to start:
 
 1. From the main page of the forked repository, select the `_projects` folder from the file explorer table. ![Select _projects]({{'assets/images/new_project_1.png' | relative_url}})
+
 2. From within this folder, click *Add file > Create new file* ![Add file > Create new file]({{'assets/images/new_project_2.png' | relative_url}})
+
 3. At the top of the page you'll see an empty box with the placeholder text "Name your file...". Enter the name of the new folder you'd like to create:<br>**The name of the folder will be used to generate the title for your project (see below for how to override this)**<br>![Enter a folder name]({{'assets/images/new_project_3.png' | relative_url}})<br> followed by a forward slash `/`, and then the name of the file `index.md`:<br>![Enter file name]({{'assets/images/new_project_4.png' | relative_url}})
+
 4. You can now start writing a lay summary of your project written in [markdown](https://en.wikipedia.org/wiki/Markdown) format in the text box below. You can include as much detail as you like, but you also have the option to add additional pages if you'd like to split things up into separate sections (see *Extra content* below).
+
 5. When you'd like to save your progress, click "Commit changes...". In the pop-up enter whatever short message you think is appropriate to describe the changes you've made, then click "Commit changes".
 6. To edit an existing file, locate and click on it in the GitHub repository's file explorer, then select the pencil icon from the right of the toolbar:![Edit file icon]({{'assets/images/edit_file.png' | relative_url}})
 
-
 If you're new to markdown:
-* Whilst editing a mardown file you can switch between the *Preview* and *Edit* views to get a sense of how your markdown content is going to appear on the page.
-* This [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to help you get started.
 
+- Whilst editing a mardown file you can switch between the *Preview* and *Edit* views to get a sense of how your markdown content is going to appear on the page.
+- This [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to help you get started.
 
-### metadata.yml
+### The `metadata.yml` file
+
 Your project folder must also include a `metadata.yml` file which adds information about your project. The file, written in [yaml format](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html), can include a list of project authors (required), the title, and its status.
 
 An example metadata.yml file might look like this:
+
 ```yaml
 title: Nature vs Nurture the UCLH Perspective
 status: ongoing
@@ -65,34 +72,38 @@ authors:
 - Gregor Mendel
 - Rosalind Franklin
 ```
-<dl>
-<dt>title</dt>
-<dd>By default the title for your project will be derived from the folder name by replacing any dash or hyphen characters with spaces, and converting the result to title case. Add a title here to override this</dd>
-<dt>status</dt>
-<dd>Each project page displays the current status of the project on a label displayed next to the title. This can be one of two options: ongoing or completed. If not included here, the default will be ongoing.</dd>
-<dt>authors</dt>
-<dd>This file must contain a list of authors added in the format shown in the example above</dd>
-</dl>
+
+title
+: By default the title for your project will be derived from the folder name by replacing any dash or hyphen characters with spaces, and converting the result to title case. Add a title here to override this
+
+status
+: Each project page displays the current status of the project on a label displayed next to the title. This can be one of two options: ongoing or completed. If not included here, the default will be ongoing.
+
+authors
+: This file must contain a list of authors added in the format shown in the example above
 
 ### Extra content
-If you'd like to split content across several pages, or include an embed link for your data, you can add extra content by including additional markdown or html files in your project folder. This content will appear in separate tabs across the top of the page. 
+
+If you'd like to split content across several pages, or include an embed link for your data, you can add extra content by including additional markdown or html files in your project folder. This content will appear in separate tabs across the top of the page.
 
 The name of the file is used to generate the tab label for the extra content as follows:
 
-* The filename suffix (.md/.html is removed)
-* Any underscore(_) or hyphen (-) characters are replaced with spaces
-* Digits at the start of the filename are removed
-* Any whitespace remaining at the start or end of the name is removed
-* The name is converted to title case
+- The filename suffix (.md/.html is removed)
+- Any underscore(_) or hyphen (-) characters are replaced with spaces
+- Digits at the start of the filename are removed
+- Any whitespace remaining at the start or end of the name is removed
+- The name is converted to title case
 
 As an example, the tab label for `03_code-and_data.md` would be "Code And Data".
 
 Tab order is alphabetical (except index.md which always appears first). To determine the order in which tabs appear, use numbers at the start of your filenames (e.g. `01_methods.md`, `02_privacy.md`, `03_data.html`).
 
 ### Assets
+
 The site builder only picks up files with .html or .md suffixes as extra content to be included as tabs on the project page, anything else is ignored. However, you can use relative links to include other types of assets in your pages such as images, javascript, css etc. For example, you could create a folder inside your project folder called images, where you can upload all of the images you'd like to include in your pages. To upload a file, select "Upload files" from the "Add files" dropdown menu.
 
 ### Quarto
+
 If you use Quarto to generate an html page, you will find it generates a whole folder of assets that need to be included. No problem, just include the Quarto assets folder in your project folder alongside the html file, and the relative links to those assets should still work.
 
 ## Step 4: Make a pull request
@@ -100,6 +111,7 @@ If you use Quarto to generate an html page, you will find it generates a whole f
 To publish your project, you will need to merge your new files back into the original GitHub repository. To do this you will need to submit a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). The pull request process allows us to review submissions before they are added to ensure they comply with our standards.
 
 To open a pull request:
+
 1. Select Pull requests from the top navigation menu<br> ![Pull requests in the top nav menu]({{'assets/images/pull_request_1.png' | relative_url}})
 2. Click the green 'New pull request' button
 3. On the next page title "Comparing changes" you should see the base repository on the left (the original repository) with an arrow pointing to it from the head repository (your fork) on the right. Make sure the pull request is targeting the staging branch on the base repository (this should already be selected as the default option)<br> ![Original repository on the left, fork on the right]({{'assets/images/pull_request_2.png' | relative_url}})
