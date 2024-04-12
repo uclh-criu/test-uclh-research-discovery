@@ -4,6 +4,17 @@ title: (SPOT)light
 status: completed
 authors:
   - Steve Harris
+tabs:
+- {
+  name: spotlight_data,
+  source: data.md,
+  label: Data
+  }
+- {
+  name: spotlight_results,
+  source: results.md,
+  label: Results
+  }
 ---
 
 Deteriorating ward patients and timing of admission to critical care - individual patient data from NHS hospitals.
@@ -15,12 +26,6 @@ These data are from a study of deteriorating patients in NHS hospitals that exam
 |_Figure 1: Complete patient follow-up_|
 
 Uniquely, the study followed all patients regardless of the decision to admit thereby allowing an estimate of outcome without treatment selection bias.
-
-| ![](./risk-adjustment.png){: width="600" } |
-| :-- |
-|_Figure 2: Patient mortality by severity of illness quartiles_|
-
-<iframe src="https://widgets.figshare.com/articles/25142777/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
 
 The data were collected as part of a PhD project funded by the Wellcome Trust.
 
