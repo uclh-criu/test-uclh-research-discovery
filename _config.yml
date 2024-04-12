@@ -33,6 +33,7 @@ email: uclh.criu@nhs.net
 plugins:
   - jekyll-feed
   - jekyll-autoprefixer
+  - jekyll-seo-tag
 
 autoprefixer:
   browsers:
