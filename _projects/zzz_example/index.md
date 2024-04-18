@@ -20,6 +20,6 @@ tabs:
   }
 ---
 
-<!-- {{page.title}}: an investigation to see if it's possible to cut flu out of the body using CT-guided surgery. -->
 An investigation to see if it's possible to cut flu out of the body using CT-guided surgery.
 
+<!-- {{page.title}}: an investigation to see if it's possible to cut flu out of the body using CT-guided surgery. -->
