@@ -1,28 +1,29 @@
 ---
 layout: project
-title: UCLH Ngtube Synthetic Data
+title: Detecting misplaced NG tubes
 status: ongoing
+tags: imaging, safety
 authors:
-- NIHR CRIU SAFEHR Team
+- SAFEHR team
 
 tabs:
 - {
-    name: uclh-ngt-s0-detail,
-    type: md,
-    source: _01_detail.md,
-    label: Detail
+    name: uclh-ngt-s0-quarto,
+    type: html,
+    source: omop_concepts_frequency_table.html,
+    label: Data summary
   }
 - {
-    name: uclh-ngt-s0-appx,
-    type: md,
-    source: _02_appendix.md,
-    label: Appendix
+  name: uclh-ngt-s0-ehr-data,
+  type: md,
+  source: _03_data.md,
+  label:  Synthetic EHR
   }
 - {
-  name: uclh-ngt-s0-data,
-  type: html,
-  source: _03_data.html,
-  label:  Data
+  name: uclh-ngt-s0-image-data,
+  type: md,
+  source: _04_image.md,
+  label:  Synthetic CXR
   }
 ---
 
