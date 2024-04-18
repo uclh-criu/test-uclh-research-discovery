@@ -1,6 +1,6 @@
 ---
 layout: project
-title: (SPOT)light
+title: Deteriorating ward patients
 status: completed
 authors:
   - Steve Harris
