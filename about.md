@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-The Health Data Science Demos website is a repository of research using patient data from UCLH. The information is aimed to the data science community, to learn how patient data is being used to help improve healthcare.
+The Health Data Cards website is a repository of research using patient data from UCLH. The information is aimed to the data science community, to learn how patient data is being used to help improve healthcare.
 
 Each project provides information about the analysis performed and technologies
 developed, the process followed to protect sensitive patient data, as well as
