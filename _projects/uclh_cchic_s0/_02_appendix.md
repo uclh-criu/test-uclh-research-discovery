@@ -1,6 +1,8 @@
 
 ##### 2011 Race Census figure in England and Wales
 
+These are the nationally reported ethnicity characteristics that we use for generating the synthetic data.
+
 | Ethnic Group                                                                                   | Population(%) |
 |------------------------------------------------------------------------------------------------|---------------|
 | Asian or Asian British: Bangladeshi | 1.1 |
