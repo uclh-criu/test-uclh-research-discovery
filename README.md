@@ -21,3 +21,25 @@ And build and serve the site with:
 ```sh
 bundle exec jekyll serve
 ```
+
+## Building with Docker
+
+Docker deployment files are provided to develop in environments where installing
+Ruby is not possible.
+
+The file `compose.yml` binds the project folder to the host mount point
+`/opt/code`. This is done so Jekyll can detect changes in the local files and
+rebuild the website.
+
+1. Clone this repository
+2. Copy `sample.env` to `.env` and update with your environment configuration.
+3. Build and serve the site with:
+
+   ```sh
+   docker compose build
+   docker compose run --rm web bundle install
+   docker compose up
+   ```
+
+   The second command will install the Ruby dependencies in your local project
+   folder and make them available for the Docker container during development.

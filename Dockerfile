@@ -9,9 +9,6 @@ ARG FTP_PROXY=${FTP_PROXY}
 ARG HTTP_PROXY=${HTTP_PROXY}
 ARG HTTPS_PROXY=${HTTPS_PROXY}
 
-ENV GEM_HOME=/home/${USER}/gems
-ENV PATH="${GEM_HOME}:${PATH}"
-
 EXPOSE 4000
 
 WORKDIR /opt/code
@@ -42,6 +39,7 @@ USER ${USER}:${GROUP}
 COPY --chown=${USER}:${GROUP} . .
 
 # Finally, install Jekyll, Bundler, and other dependencies
+RUN bundle config --local path $PWD/vendor/bundle
 RUN bundle install
 
 CMD bundle exec jekyll serve --host 0.0.0.0
