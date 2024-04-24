@@ -1,0 +1,77 @@
+/*
+ * This file includes Bootstrap components as required by the website.
+ *
+ * Boostrap library is now managed as a gem and downloaded into $GEM_HOME (~/gems).
+ */
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/functions";
+
+// 2. Include any default variable overrides here
+@import "brand_colours";
+
+$white:   #FFFFFF;
+$blue:    $uclh-cool-blue !default;
+$red:     $uclh-warm-red !default;
+$orange:  $uclh-warm-orange !default;
+$yellow:  $uclh-warm-yellow !default;
+$green:   $uclh-cool-green !default;
+
+$primary: $uclh-cool-dark-blue !default;
+$info:    $uclh-cool-blue !default;
+
+$body-tertiary-bg:  #E9ECEF !default; /* Dropdown bg and others. Bootstrap $gray-200 */
+
+$navbar-dark-color:                 $white !default;
+$navbar-dark-toggler-border-color:  rgba($white, .5) !default;
+
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/bootstrap.scss";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/variables";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/variables-dark";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/maps";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/mixins";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/root";
+
+// 6. Optionally include any other parts as needed
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/utilities";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/reboot";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/type";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/images";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/containers";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/grid";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/tables";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/forms";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/buttons";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/transitions";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/dropdown";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/button-group";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/nav";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/navbar";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/card";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/accordion";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/breadcrumb";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/pagination";
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/badge";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/alert";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/progress";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/list-group";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/close";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/toasts";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/modal";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/tooltip";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/popover";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/carousel";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/spinners";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/offcanvas";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/placeholders";
+// @import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/helpers";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "~/gems/gems/bootstrap-5.3.2/assets/stylesheets/bootstrap/utilities/api";
+
+// 8. Add additional custom code here

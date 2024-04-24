@@ -1,0 +1,72 @@
+/**
+ * Project card
+ */
+
+.project-cards-container {
+  display: grid;
+  grid-gap: 1.5rem;
+}
+
+@include media-breakpoint-up(md) {
+  .project-cards-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .project-cards-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.project-card {
+	.project-title {
+    font-size: 1.25rem;
+
+    a {
+      color: $body-color;
+      text-decoration: none;
+      
+    	&:hover {
+        // color: $link-hover-color;
+        text-decoration: underline;
+    	}
+    }
+	}
+
+	// .card-footer {
+	// 	background-color: var(--background-colour-highlight);
+  // }
+
+	.badge {
+		font-size: 0.65rem;
+  }
+
+  .authors {
+    .tooltiptext {
+      visibility: hidden;
+      width: 300px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+
+      /* Position the tooltip text */
+      position: absolute;
+      z-index: 1;
+      top: 35px;
+      left: 70px;
+      margin-left: -60px;
+
+      /* Fade in tooltip */
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+      &:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

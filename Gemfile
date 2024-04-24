@@ -41,3 +41,5 @@ gem "bigdecimal", "~> 3.1.6"
 gem "csv", "~> 3.0"
 gem "google-protobuf", "~> 3.25.3"  # See https://stackoverflow.com/a/75036178
 # gem "webrick", "~> 1.8"  # See https://github.com/jekyll/jekyll/issues/8523
+
+gem 'bootstrap', '5.3.2'
