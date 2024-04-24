@@ -4,6 +4,10 @@ _site
 .jekyll-metadata
 vendor
 *.pyc
+*.DS_Store
+
+# OS specific files
+.DS_Store
 
 # Environment files
 .env

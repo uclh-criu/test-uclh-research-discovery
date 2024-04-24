@@ -18,9 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Health Data Science Demos
+title: SAFEHR Data Cards 
 description: >- # this means to ignore newlines until "baseurl:"
-  The Health Data Science Demos website is a repository of research projects
+  The SAFEHR Health Data Cards website is a repository of research projects
   being carried at UCL and UCLH. The information is aimed to the data science
   community, to learn how patient data is being used to help improve healthcare.
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
@@ -33,6 +33,7 @@ email: uclh.criu@nhs.net
 plugins:
   - jekyll-feed
   - jekyll-autoprefixer
+  - jekyll-seo-tag
 
 autoprefixer:
   browsers:
